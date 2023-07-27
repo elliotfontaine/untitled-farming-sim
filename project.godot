@@ -11,10 +11,19 @@ config_version=5
 [application]
 
 config/name="Untitled Farming Sim"
+run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=240
+window/size/viewport_height=135
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

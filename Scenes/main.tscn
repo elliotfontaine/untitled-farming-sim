@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsyc2uwi0cy1d"]
+
+[ext_resource type="PackedScene" uid="uid://bv46sn2kor0cl" path="res://Scenes/tilemap.tscn" id="1_blgpd"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="TileMap" parent="." instance=ExtResource("1_blgpd")]
+y_sort_enabled = true
+layer_3/y_sort_enabled = true

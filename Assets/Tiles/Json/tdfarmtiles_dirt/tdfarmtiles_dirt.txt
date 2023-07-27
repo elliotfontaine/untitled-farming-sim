@@ -1,0 +1,9 @@
+{
+	"tile_size": 16,
+	"blob_sets": [
+
+	],
+	"wang_sets": [
+
+	]
+}
