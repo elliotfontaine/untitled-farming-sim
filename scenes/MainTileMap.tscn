@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://dvh7yb1mfmlfn"]
 
-[ext_resource type="Texture2D" uid="uid://cmviayln68wci" path="res://assets/images/tiles/tdfarmtiles_dirtwet/tileset_tdfarmtiles_dirtwet.png" id="1_i8awq"]
-[ext_resource type="Texture2D" uid="uid://caqa75d8x12dp" path="res://assets/images/tiles/tdfarmtiles_fence/tileset_tdfarmtiles_fence.png" id="2_lk1hu"]
-[ext_resource type="Texture2D" uid="uid://gnp235dgwhij" path="res://assets/images/tiles/tdfarmtiles_grass/tileset_tdfarmtiles_grass.png" id="3_41oyw"]
-[ext_resource type="Texture2D" uid="uid://edqqfbegr1ou" path="res://assets/images/tiles/tdfarmtiles_rockypath/tileset_tdfarmtiles_rockypath.png" id="4_0gaxl"]
+[ext_resource type="Texture2D" uid="uid://cmviayln68wci" path="res://assets/images/tiles/tdfarmtiles_dirtwet/tileset_tdfarmtiles_dirtwet.png" id="1_2jm0f"]
+[ext_resource type="Texture2D" uid="uid://caqa75d8x12dp" path="res://assets/images/tiles/tdfarmtiles_fence/tileset_tdfarmtiles_fence.png" id="2_eod0m"]
+[ext_resource type="Texture2D" uid="uid://gnp235dgwhij" path="res://assets/images/tiles/tdfarmtiles_grass/tileset_tdfarmtiles_grass.png" id="3_bvl6n"]
+[ext_resource type="Texture2D" uid="uid://edqqfbegr1ou" path="res://assets/images/tiles/tdfarmtiles_rockypath/tileset_tdfarmtiles_rockypath.png" id="4_f7reb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q0jg"]
-texture = ExtResource("1_i8awq")
+texture = ExtResource("1_2jm0f")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -56,7 +56,7 @@ texture = ExtResource("1_i8awq")
 8:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi35u"]
-texture = ExtResource("2_lk1hu")
+texture = ExtResource("2_eod0m")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -106,7 +106,7 @@ texture = ExtResource("2_lk1hu")
 8:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m8468"]
-texture = ExtResource("3_41oyw")
+texture = ExtResource("3_bvl6n")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -156,7 +156,7 @@ texture = ExtResource("3_41oyw")
 8:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j2wbh"]
-texture = ExtResource("4_0gaxl")
+texture = ExtResource("4_f7reb")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -211,7 +211,7 @@ sources/1 = SubResource("TileSetAtlasSource_pi35u")
 sources/2 = SubResource("TileSetAtlasSource_m8468")
 sources/3 = SubResource("TileSetAtlasSource_j2wbh")
 
-[node name="TileMapScene" type="Node2D"]
+[node name="MainTileMap" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wei03")
