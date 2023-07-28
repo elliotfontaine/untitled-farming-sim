@@ -13,6 +13,8 @@ var plant_0 = [Vector2i(14, 12), Vector2i(2, 14), Vector2i(14,2), Vector2i(2,2)]
 
 @onready var rich_text_label = $RichTextLabel
 var current_harvest = 0
+	
+var source_id : int = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,8 +25,6 @@ func _input(event):
 			
 		var mouse_pos = get_global_mouse_position() # get mouse position in float coords
 		var tile_mouse_pos = tile_map.local_to_map(mouse_pos) # convert it to tilemap coords
-		
-		var source_id = 4
 		
 		var atlas_coord : Vector2i = plant_0[0]
 		
@@ -43,15 +43,13 @@ func _input(event):
 			if tile_data:
 				var can_harvest_tile = tile_data.get_custom_data(can_harvest)
 				if can_harvest_tile:
-					tile_map.set_cell(plant_layer, tile_mouse_pos, 4, Vector2i(0,0)) # basically removes tile
+					tile_map.set_cell(plant_layer, tile_mouse_pos, 6, Vector2i(0,0)) # basically removes tile
 					# ^ throws an error due to tile not existing, dont worry it works fine
 					current_harvest+=1
 					rich_text_label.text = "Money: " + str(current_harvest)
 		
 			
 func handle_seed(tile_mouse_pos, level, atlas_coord, final_seed_level):
-	
-	var source_id : int = 4
 	
 	tile_map.set_cell(plant_layer, tile_mouse_pos, source_id, atlas_coord)
 	
