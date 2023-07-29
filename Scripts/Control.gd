@@ -30,15 +30,12 @@ func _on_back_pressed():
 
 
 
-
 # --------- CREDITS BUTTON ---------
 #-----------------------------------
 
 #Will display the game credits when credits button is pressed
 func _on_credits_pressed():
 	pass 
-
-
 
 
 
