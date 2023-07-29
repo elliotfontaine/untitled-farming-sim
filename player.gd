@@ -11,12 +11,21 @@ var direction : String = "down_idle"
 
 
 
-
 func _ready():
 	anim.play("down_idle")
 
-#function to control player movement
+#player physics
 func _physics_process(delta):
+	move_player()
+	idle_animations()
+	walk_animations()
+	move_and_slide()
+
+
+
+#----- ACTIONS -----
+#--------------------
+func move_player():
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
@@ -25,17 +34,13 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 
-	#Sets up idle animations
-	if velocity == Vector2.ZERO and direction == "left":
-			anim.play("left_idle")
-	elif velocity == Vector2.ZERO and direction == "right":
-			anim.play("right_idle")
-	elif velocity == Vector2.ZERO and direction == "up":
-			anim.play("up_idle")
-	elif velocity == Vector2.ZERO and direction == "down":
-			anim.play("down_idle")
 
-	#Sets up play movement animation
+#----- ANIMATIONS -----
+#----------------------
+
+
+#Sets up walking animations for player character
+func walk_animations():
 	if velocity.x < 0:
 		anim.play("walk_left")
 		direction = "left"
@@ -50,5 +55,17 @@ func _physics_process(delta):
 		direction = "down"
 	else:
 		pass
-		
-	move_and_slide()
+
+
+#Sets up idle animations for when the player isn't moving
+func idle_animations():
+	if velocity == Vector2.ZERO and direction == "left":
+			anim.play("left_idle")
+	elif velocity == Vector2.ZERO and direction == "right":
+			anim.play("right_idle")
+	elif velocity == Vector2.ZERO and direction == "up":
+			anim.play("up_idle")
+	elif velocity == Vector2.ZERO and direction == "down":
+			anim.play("down_idle")
+	else:
+		pass

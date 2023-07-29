@@ -1,14 +1,14 @@
-[gd_scene load_steps=44 format=3 uid="uid://dwia7dvo8l2d5"]
+[gd_scene load_steps=44 format=3 uid="uid://bmufdgolayvja"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_lg5xw"]
-[ext_resource type="Texture2D" uid="uid://cboapo3swky0l" path="res://assets/images/characters/farmer_0/tdfarmchar_0_rundwn_0-sheet.png" id="2_ky1n5"]
-[ext_resource type="Texture2D" uid="uid://cg6k4xox2p0p6" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idledwn_0-sheet.png" id="2_lp8i4"]
-[ext_resource type="Texture2D" uid="uid://dl8diu03mt8tp" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idlelft_0-sheet.png" id="3_c8jit"]
-[ext_resource type="Texture2D" uid="uid://bvor8rs4rx5g4" path="res://assets/images/characters/farmer_0/tdfarmchar_0_runlft_0-sheet.png" id="3_k8vi7"]
-[ext_resource type="Texture2D" uid="uid://dwp2axxkjqhbs" path="res://assets/images/characters/farmer_0/tdfarmchar_0_runrgt_0-Sheet-sheet.png" id="4_e7nbi"]
-[ext_resource type="Texture2D" uid="uid://bcodbxbw1130y" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idlergt_0-sheet.png" id="4_q4tov"]
-[ext_resource type="Texture2D" uid="uid://m4ocev24b2dp" path="res://assets/images/characters/farmer_0/tdfarmchar_0_runup_0-sheet.png" id="5_2aqym"]
-[ext_resource type="Texture2D" uid="uid://87m8jib1jeua" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idleup_0-sheet.png" id="5_g45n6"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_rundwn_0-sheet.png" id="2_ky1n5"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idledwn_0-sheet.png" id="2_lp8i4"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idlelft_0-sheet.png" id="3_c8jit"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_runlft_0-sheet.png" id="3_k8vi7"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_runrgt_0-Sheet-sheet.png" id="4_e7nbi"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idlergt_0-sheet.png" id="4_q4tov"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_runup_0-sheet.png" id="5_2aqym"]
+[ext_resource type="Texture2D" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idleup_0-sheet.png" id="5_g45n6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fgoul"]
 atlas = ExtResource("2_lp8i4")
