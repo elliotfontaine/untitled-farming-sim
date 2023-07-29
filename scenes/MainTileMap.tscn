@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dvh7yb1mfmlfn"]
+[gd_scene load_steps=22 format=3 uid="uid://dvh7yb1mfmlfn"]
 
 [ext_resource type="Texture2D" uid="uid://cmviayln68wci" path="res://assets/images/tiles/tdfarmtiles_dirtwet/tileset_tdfarmtiles_dirtwet.png" id="1_2jm0f"]
 [ext_resource type="Script" path="res://assets/scripts/seed_growth.gd" id="1_x6fxq"]
@@ -7,9 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://edqqfbegr1ou" path="res://assets/images/tiles/tdfarmtiles_rockypath/tileset_tdfarmtiles_rockypath.png" id="4_f7reb"]
 [ext_resource type="Texture2D" uid="uid://b3b7gwfq1dnb1" path="res://assets/images/atlases/player.png" id="6_mhvun"]
 [ext_resource type="Texture2D" uid="uid://dja35fvmmqpoc" path="res://assets/images/objects/tdfarmobj_house_0.png" id="7_0c854"]
-[ext_resource type="Texture2D" uid="uid://bcu8slgab6gcn" path="res://assets/images/atlases/plant_0.png" id="7_1tdun"]
 [ext_resource type="Texture2D" uid="uid://dmvdxe6b3tsvv" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idledwn_0.png" id="9_f36l2"]
-[ext_resource type="PackedScene" uid="uid://bii03sy63gig4" path="res://scenes/plant_0.tscn" id="9_t3ste"]
+[ext_resource type="PackedScene" uid="uid://bii03sy63gig4" path="res://scenes/Plants/plant_0.tscn" id="9_qnruk"]
 [ext_resource type="Script" path="res://assets/scripts/Movement.gd" id="10_p78gv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q0jg"]
@@ -1859,33 +1858,8 @@ texture = ExtResource("7_0c854")
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-37.8302, 9.19239, -0.353554, -8, 37.8302, 9.54594, 37.8302, 31.1127, 14.8492, 31.4663, 14.8492, 39.598, -13.435, 39.9515, -15.9099, 31.1127, -38, 30)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exuwx"]
-texture = ExtResource("7_1tdun")
-texture_region_size = Vector2i(2, 2)
-2:2/size_in_atlas = Vector2i(8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
-2:2/0/custom_data_1 = true
-2:14/size_in_atlas = Vector2i(6, 4)
-2:14/0 = 0
-2:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:14/0/physics_layer_0/angular_velocity = 0.0
-14:2/size_in_atlas = Vector2i(7, 5)
-14:2/0 = 0
-14:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-14:2/0/physics_layer_0/angular_velocity = 0.0
-14:12/size_in_atlas = Vector2i(6, 5)
-14:12/0 = 0
-14:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-14:12/0/physics_layer_0/angular_velocity = 0.0
-24:12/size_in_atlas = Vector2i(6, 5)
-24:12/0 = 0
-24:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-24:12/0/physics_layer_0/angular_velocity = 0.0
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2msl1"]
-scenes/1/scene = ExtResource("9_t3ste")
+scenes/1/scene = ExtResource("9_qnruk")
 
 [sub_resource type="TileSet" id="TileSet_wei03"]
 occlusion_layer_0/light_mask = 2
@@ -1909,7 +1883,6 @@ sources/1 = SubResource("TileSetAtlasSource_pi35u")
 sources/2 = SubResource("TileSetAtlasSource_m8468")
 sources/3 = SubResource("TileSetAtlasSource_j2wbh")
 sources/5 = SubResource("TileSetAtlasSource_isrlp")
-sources/6 = SubResource("TileSetAtlasSource_exuwx")
 sources/4 = SubResource("TileSetAtlasSource_frdhn")
 sources/7 = SubResource("TileSetScenesCollectionSource_2msl1")
 

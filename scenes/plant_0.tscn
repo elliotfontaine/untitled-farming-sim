@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bii03sy63gig4"]
-
-[ext_resource type="Texture2D" uid="uid://chjsnj7pvoas8" path="res://assets/images/objects/tdfarmobj_plant_0_0.png" id="1_cghw5"]
-[ext_resource type="Script" path="res://scenes/plant_0.gd" id="2_cf1bc"]
-
-[node name="Sprite2D" type="Sprite2D"]
-position = Vector2(0, -1)
-texture = ExtResource("1_cghw5")
-script = ExtResource("2_cf1bc")
