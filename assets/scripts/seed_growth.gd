@@ -31,8 +31,6 @@ var source_id: int = 6
 const max_player_plant_dist : float = 50
 var inRange : bool = true
 
-var test = Crop.new()
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass  # Replace with any initialization code if needed.
