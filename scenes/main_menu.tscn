@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://f4kdo11tx3uw"]
+
+[ext_resource type="Script" path="res://Scripts/Control.gd" id="1_nf657"]
+
+[node name="MainMenu" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nf657")
+
+[node name="MainMenuContainer" type="BoxContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 384.0
+offset_top = 216.0
+offset_right = 768.0
+offset_bottom = 432.0
+alignment = 1
+vertical = true
+
+[node name="Play" type="Button" parent="Control/MainMenuContainer"]
+layout_mode = 2
+text = "PLAY"
+metadata/_edit_lock_ = true
+
+[node name="Options" type="Button" parent="Control/MainMenuContainer"]
+layout_mode = 2
+text = "OPTIONS"
+metadata/_edit_lock_ = true
+
+[node name="Credits" type="Button" parent="Control/MainMenuContainer"]
+layout_mode = 2
+text = "CREDITS
+"
+metadata/_edit_lock_ = true
+
+[node name="Exit" type="Button" parent="Control/MainMenuContainer"]
+layout_mode = 2
+text = "EXIT"
+metadata/_edit_lock_ = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.0
+offset_top = -294.0
+offset_right = 516.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Control/OptionsContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
+[node name="Audio" type="TabBar" parent="Control/OptionsContainer/TabContainer"]
+layout_mode = 2
+
+[node name="Video" type="TabBar" parent="Control/OptionsContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Controls" type="TabBar" parent="Control/OptionsContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/OptionsContainer"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Apply" type="Button" parent="Control/OptionsContainer/HBoxContainer"]
+layout_mode = 2
+text = "Apply"
+
+[node name="Back" type="Button" parent="Control/OptionsContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Control/MainMenuContainer/Play" to="Control" method="_on_play_pressed"]
+[connection signal="pressed" from="Control/MainMenuContainer/Options" to="Control" method="_on_options_pressed"]
+[connection signal="pressed" from="Control/MainMenuContainer/Credits" to="Control" method="_on_credits_pressed"]
+[connection signal="pressed" from="Control/MainMenuContainer/Exit" to="Control" method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/OptionsContainer/HBoxContainer/Back" to="Control" method="_on_back_pressed"]
