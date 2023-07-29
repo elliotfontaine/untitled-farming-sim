@@ -7,7 +7,6 @@ func _physics_process(delta):
 	motion.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	motion.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	motion = motion.normalized() * speed
-	print(motion)
 	
 	if motion != Vector2.ZERO:
 		velocity = motion

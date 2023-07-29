@@ -31,15 +31,18 @@ var source_id: int = 6
 const max_player_plant_dist : float = 50
 var inRange : bool = true
 
+var test = Crop.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass  # Replace with any initialization code if needed.
 
-func _process(_delta):
-	checkIfMouseInRangePlayer()
+#func _process(_delta):
+#	checkIfMouseInRangePlayer()
 
 # Handle mouse input (left-click and right-click)
 func _input(_event):
+	checkIfMouseInRangePlayer()
 	# Left-click (planting seeds)
 	if Input.is_action_pressed("click") and inRange:
 		var mouse_pos = get_global_mouse_position()
