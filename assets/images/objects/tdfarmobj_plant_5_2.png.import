@@ -1,34 +1,20 @@
 [remap]
 
-importer="texture"
-type="CompressedTexture2D"
+importer="texture_atlas"
+type="Texture2D"
 uid="uid://cr1fuj1kgu52g"
-path="res://.godot/imported/tdfarmobj_plant_5_2.png-1de69333f78f207a19bb1d7c09590e84.ctex"
-metadata={
-"vram_texture": false
-}
-
+path="res://.godot/imported/tdfarmobj_plant_5_2.png-1de69333f78f207a19bb1d7c09590e84.res"
+group_file="res://assets/images/atlases/plant_5.png"
+valid=true
 [deps]
 
+
 source_file="res://assets/images/objects/tdfarmobj_plant_5_2.png"
-dest_files=["res://.godot/imported/tdfarmobj_plant_5_2.png-1de69333f78f207a19bb1d7c09590e84.ctex"]
+dest_files=["res://.godot/imported/tdfarmobj_plant_5_2.png-1de69333f78f207a19bb1d7c09590e84.res"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=false
-mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/normal_map_invert_y=false
-process/hdr_as_srgb=false
-process/hdr_clamp_exposure=false
-process/size_limit=0
-detect_3d/compress_to=1
+atlas_file="res://assets/images/atlases/plant_5.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true
