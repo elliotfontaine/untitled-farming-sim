@@ -1,7 +1,6 @@
-class_name Crop
+class_name Crop extends Node2D
 
-var atlasID : int
-var atlas_coords : Vector2i # we need this because the atlases positions are all different
+var plant
 
 var tile_map_pos : Vector2i
 
@@ -12,10 +11,19 @@ var time_to_reach_maturity : int
 var buy_price : int
 var sell_price : int
 
-var grow_state : int
+var grow_state : int = 0
 var max_grow_state : int
 
+var current_growth : float = 0
+var required_growth_till_next_state : int
+
+var base_temp : float
+
+var nutrient_consumption_per_day : float
+
 var sick : bool
+
+const PLANT_LAYER = 2
 
 func is_mature():
 	if grow_state == max_grow_state:
@@ -31,8 +39,9 @@ func can_grow():
 		
 func increase_growth(amount : int):
 	if (!is_mature()):
-		grow_state += amount
+		current_growth += amount
+		if current_growth >= required_growth_till_next_state:
+			grow_state += 1
 	
 func get_growth_stage():
 	return grow_state
-	
