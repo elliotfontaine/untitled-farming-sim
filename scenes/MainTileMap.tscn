@@ -1,15 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://dvh7yb1mfmlfn"]
+[gd_scene load_steps=20 format=3 uid="uid://dvh7yb1mfmlfn"]
 
 [ext_resource type="Texture2D" uid="uid://cmviayln68wci" path="res://assets/images/tiles/tdfarmtiles_dirtwet/tileset_tdfarmtiles_dirtwet.png" id="1_2jm0f"]
-[ext_resource type="Script" path="res://assets/scripts/seed_growth.gd" id="1_x6fxq"]
+[ext_resource type="Script" path="res://scripts/seed_growth.gd" id="1_sij48"]
 [ext_resource type="Texture2D" uid="uid://caqa75d8x12dp" path="res://assets/images/tiles/tdfarmtiles_fence/tileset_tdfarmtiles_fence.png" id="2_eod0m"]
 [ext_resource type="Texture2D" uid="uid://gnp235dgwhij" path="res://assets/images/tiles/tdfarmtiles_grass/tileset_tdfarmtiles_grass.png" id="3_bvl6n"]
 [ext_resource type="Texture2D" uid="uid://edqqfbegr1ou" path="res://assets/images/tiles/tdfarmtiles_rockypath/tileset_tdfarmtiles_rockypath.png" id="4_f7reb"]
-[ext_resource type="Texture2D" uid="uid://b3b7gwfq1dnb1" path="res://assets/images/atlases/player.png" id="6_mhvun"]
 [ext_resource type="Texture2D" uid="uid://dja35fvmmqpoc" path="res://assets/images/objects/tdfarmobj_house_0.png" id="7_0c854"]
-[ext_resource type="Texture2D" uid="uid://dmvdxe6b3tsvv" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idledwn_0.png" id="9_f36l2"]
+[ext_resource type="Script" path="res://scripts/Movement.gd" id="9_ar6ib"]
+[ext_resource type="Texture2D" uid="uid://cfr67sk2qld4g" path="res://assets/images/characters/farmer_0/tdfarmchar_0_idleup_0.png" id="9_mnbti"]
 [ext_resource type="PackedScene" uid="uid://bii03sy63gig4" path="res://scenes/Plants/plant_0.tscn" id="9_qnruk"]
-[ext_resource type="Script" path="res://assets/scripts/Movement.gd" id="10_p78gv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q0jg"]
 texture = ExtResource("1_2jm0f")
@@ -1843,9 +1842,6 @@ texture = ExtResource("4_f7reb")
 8:4/0/terrains_peering_bit/left_side = 3
 8:4/0/terrains_peering_bit/top_side = 3
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_frdhn"]
-texture = ExtResource("6_mhvun")
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4ca25"]
 polygon = PackedVector2Array(-38.9768, 31.1814, 37.6405, 30.5133, 40.0904, 9.79988, 0, -8, -40.0904, 9.79989)
 
@@ -1883,7 +1879,6 @@ sources/1 = SubResource("TileSetAtlasSource_pi35u")
 sources/2 = SubResource("TileSetAtlasSource_m8468")
 sources/3 = SubResource("TileSetAtlasSource_j2wbh")
 sources/5 = SubResource("TileSetAtlasSource_isrlp")
-sources/4 = SubResource("TileSetAtlasSource_frdhn")
 sources/7 = SubResource("TileSetScenesCollectionSource_2msl1")
 
 [sub_resource type="GDScript" id="GDScript_pkvjh"]
@@ -1906,7 +1901,7 @@ size = Vector2(20, 5)
 [node name="MainTileMap" type="Node2D"]
 
 [node name="Game" type="Node2D" parent="."]
-script = ExtResource("1_x6fxq")
+script = ExtResource("1_sij48")
 
 [node name="Camera2D" type="Camera2D" parent="Game"]
 zoom = Vector2(2, 2)
@@ -1957,11 +1952,11 @@ layer_3/tile_data = PackedInt32Array(393223, 131072, 2, 327687, 131072, 1, 26215
 script = SubResource("GDScript_pkvjh")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("10_p78gv")
+script = ExtResource("9_ar6ib")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 z_index = 5
-texture = ExtResource("9_f36l2")
+texture = ExtResource("9_mnbti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 11.5)

@@ -1,0 +1,35 @@
+[remap]
+
+<<<<<<< HEAD:assets/images/characters/farmer_0/tdfarmchar_0_idledwn_3.png.import
+importer="texture_atlas"
+type="Texture2D"
+uid="uid://o7rxssg602t4"
+path="res://.godot/imported/tdfarmchar_0_idledwn_3.png-7d8111cdd07a09492493e25206a0d430.res"
+group_file="res://assets/images/atlases/player.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/images/characters/farmer_0/tdfarmchar_0_idledwn_3.png"
+dest_files=["res://.godot/imported/tdfarmchar_0_idledwn_3.png-7d8111cdd07a09492493e25206a0d430.res"]
+=======
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bvor8rs4rx5g4"
+path="res://.godot/imported/tdfarmchar_0_runlft_0-sheet.png-2aad365045a6688f992b172b42caa0cf.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/images/characters/farmer_0/tdfarmchar_0_runlft_0-sheet.png"
+dest_files=["res://.godot/imported/tdfarmchar_0_runlft_0-sheet.png-2aad365045a6688f992b172b42caa0cf.ctex"]
+>>>>>>> 0ab27096d666683fc76dc0bb099c536c99597963:assets/images/characters/farmer_0/tdfarmchar_0_runlft_0-sheet.png.import
+
+[params]
+
+atlas_file="res://assets/images/atlases/player.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true

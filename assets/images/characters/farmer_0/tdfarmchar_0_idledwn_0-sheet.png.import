@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhr5r54af4a67"
-path="res://.godot/imported/player.png-ba323a6ba737cdbd209b3339b0c605c1.ctex"
+uid="uid://cg6k4xox2p0p6"
+path="res://.godot/imported/tdfarmchar_0_idledwn_0-sheet.png-6e8518f98a2d57d68f86c3b401119269.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/atlases/player.png"
-dest_files=["res://.godot/imported/player.png-ba323a6ba737cdbd209b3339b0c605c1.ctex"]
+source_file="res://assets/images/characters/farmer_0/tdfarmchar_0_idledwn_0-sheet.png"
+dest_files=["res://.godot/imported/tdfarmchar_0_idledwn_0-sheet.png-6e8518f98a2d57d68f86c3b401119269.ctex"]
 
 [params]
 
