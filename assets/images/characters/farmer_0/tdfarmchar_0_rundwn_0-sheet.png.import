@@ -1,5 +1,18 @@
 [remap]
 
+<<<<<<< HEAD:assets/images/characters/farmer_0/tdfarmchar_0_idledwn_2.png.import
+importer="texture_atlas"
+type="Texture2D"
+uid="uid://byqcihaestsgf"
+path="res://.godot/imported/tdfarmchar_0_idledwn_2.png-f0bfcbdcf61530fed99095a4e1a35526.res"
+group_file="res://assets/images/atlases/player.png"
+valid=true
+[deps]
+
+
+source_file="res://assets/images/characters/farmer_0/tdfarmchar_0_idledwn_2.png"
+dest_files=["res://.godot/imported/tdfarmchar_0_idledwn_2.png-f0bfcbdcf61530fed99095a4e1a35526.res"]
+=======
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cboapo3swky0l"
@@ -12,23 +25,11 @@ metadata={
 
 source_file="res://assets/images/characters/farmer_0/tdfarmchar_0_rundwn_0-sheet.png"
 dest_files=["res://.godot/imported/tdfarmchar_0_rundwn_0-sheet.png-7ea4ecb527784afa274078e73dfbade6.ctex"]
+>>>>>>> 0ab27096d666683fc76dc0bb099c536c99597963:assets/images/characters/farmer_0/tdfarmchar_0_rundwn_0-sheet.png.import
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
-compress/lossy_quality=0.7
-compress/hdr_compression=1
-compress/normal_map=0
-compress/channel_pack=0
-mipmaps/generate=false
-mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/normal_map_invert_y=false
-process/hdr_as_srgb=false
-process/hdr_clamp_exposure=false
-process/size_limit=0
-detect_3d/compress_to=1
+atlas_file="res://assets/images/atlases/player.png"
+import_mode=0
+crop_to_region=false
+trim_alpha_border_from_region=true
