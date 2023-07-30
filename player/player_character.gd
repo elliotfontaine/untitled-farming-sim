@@ -15,7 +15,7 @@ func _ready():
 	anim.play("down_idle")
 
 #player physics
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_player()
 	idle_animations()
 	walk_animations()
