@@ -1,5 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvwjy580u0rc4"]
+[gd_scene load_steps=3 format=3 uid="uid://bvwjy580u0rc4"]
 
 [ext_resource type="PackedScene" uid="uid://bs0bdore5v37h" path="res://player/clicking_player.tscn" id="1_4qh22"]
+[ext_resource type="PackedScene" uid="uid://bmufdgolayvja" path="res://player/player_character.tscn" id="2_y1ifk"]
 
 [node name="ClickingPlayerCharacter" instance=ExtResource("1_4qh22")]
+
+[node name="PlayerCharacter" parent="." index="0" instance=ExtResource("2_y1ifk")]
