@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4nnkr2m34by"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_myjkh"]
+[ext_resource type="Texture2D" uid="uid://b57e1mb30w2pf" path="res://crops/assets/crops_stages/turnip.png" id="2_pmpw2"]
+
+[node name="Turnip" type="Node2D"]
+script = ExtResource("1_myjkh")
+texture = ExtResource("2_pmpw2")
+species = "Turnip"
+family = 3

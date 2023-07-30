@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2s31d8ovdfnw"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_2wd2c"]
+[ext_resource type="Texture2D" uid="uid://2lrvph66mcfq" path="res://crops/assets/crops_stages/beet.png" id="2_uwd0m"]
+
+[node name="Beet" type="Node2D"]
+script = ExtResource("1_2wd2c")
+texture = ExtResource("2_uwd0m")
+species = "Beet"
+family = 5

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://o11pc128wk7c"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_rqhie"]
+[ext_resource type="Texture2D" uid="uid://dupygi3dxstfx" path="res://crops/assets/crops_stages/tomato.png" id="2_y32xm"]
+
+[node name="Tomato" type="Node2D"]
+script = ExtResource("1_rqhie")
+texture = ExtResource("2_y32xm")
+species = "Tomato"
+family = 7

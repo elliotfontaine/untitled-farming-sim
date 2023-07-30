@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmp70kjqfyjxp"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_0tcb3"]
+[ext_resource type="PackedScene" uid="uid://btb7dyil8vdlj" path="res://title_screen.tscn" id="1_ipabc"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_0tcb3")
+
+[node name="TitleScreen" parent="." instance=ExtResource("1_ipabc")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
