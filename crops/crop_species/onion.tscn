@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dndos1oxg1lrb"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_nhcxu"]
+[ext_resource type="Texture2D" uid="uid://bp30eghcdmq6d" path="res://crops/assets/crops_stages/onion.png" id="2_x5btt"]
+
+[node name="Onion" type="Node2D"]
+script = ExtResource("1_nhcxu")
+texture = ExtResource("2_x5btt")
+species = "Onion"
+family = 8

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkprd7qgym2fa"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_nbam2"]
+[ext_resource type="Texture2D" uid="uid://biy3nf7r7r61" path="res://crops/assets/crops_stages/pumpkin.png" id="2_jdsya"]
+
+[node name="Pumpkin" type="Node2D"]
+script = ExtResource("1_nbam2")
+texture = ExtResource("2_jdsya")
+species = "Pumpkin"
+family = 6

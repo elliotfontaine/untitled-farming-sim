@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxtxvgohjtibm"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_dsc34"]
+[ext_resource type="Texture2D" uid="uid://bthit8jjrobm7" path="res://crops/assets/crops_stages/wheat.png" id="2_ixiyc"]
+
+[node name="Wheat" type="Node2D"]
+script = ExtResource("1_dsc34")
+texture = ExtResource("2_ixiyc")
+species = "Wheat"
+family = 1

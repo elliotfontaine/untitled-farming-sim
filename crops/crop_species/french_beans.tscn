@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cov0jud3r1mur"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_dsd05"]
+[ext_resource type="Texture2D" uid="uid://blqshbe6f8xhm" path="res://crops/assets/crops_stages/french_beans.png" id="2_72n4x"]
+
+[node name="FrenchBeans" type="Node2D"]
+script = ExtResource("1_dsd05")
+texture = ExtResource("2_72n4x")
+species = "FrenchBeans"

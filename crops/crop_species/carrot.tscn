@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://crbv5r7jfo7kl"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_s6a2y"]
+[ext_resource type="Texture2D" uid="uid://xycm7qlk0dr8" path="res://crops/assets/crops_stages/carrot.png" id="2_xytog"]
+
+[node name="Carrot" type="Node2D"]
+script = ExtResource("1_s6a2y")
+texture = ExtResource("2_xytog")
+species = "Carror"
+family = 4
