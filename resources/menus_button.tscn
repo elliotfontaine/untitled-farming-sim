@@ -5,6 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_bvc23"]
 font = ExtResource("2_odayu")
+font_color = Color(1, 0.85098, 0.85098, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 0.0784314)
 
@@ -19,18 +20,9 @@ texture = ExtResource("1_6dikq")
 centered = false
 hframes = 2
 
-[node name="Label" type="Label" parent="Sprite2D"]
+[node name="Label" type="Label" parent="."]
 offset_left = 1.0
 offset_right = 49.0
 offset_bottom = 15.0
-text = "Options"
 label_settings = SubResource("LabelSettings_bvc23")
 horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="Sprite2D"]
-self_modulate = Color(1, 1, 1, 0)
-offset_left = -24.0
-offset_top = -8.0
-offset_right = 24.0
-offset_bottom = 8.0
-action_mode = 0
