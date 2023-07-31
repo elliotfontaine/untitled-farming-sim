@@ -34,26 +34,21 @@ enum FAMILIES {
 ## Plant family. Influences disease outbreak.
 @export var family: FAMILIES
 ## Maximum growth in Growing degree-days
-@export var max_growth: int = 200
-## Baseline temperature for the plant to grow. Its growth speed is
+@export_range(0, 400, 10, "or_greater") var max_growth: int = 200
+## Baseline temperature in °C for the plant to grow. Its growth speed is
 ## proportionate to temperature minus this baseline. If temperature
 ## gets below the baseline, plant development will stop.
-@export var baseline_temperature: int = 5
+@export_range(0, 30, 1, "or_greater") var baseline_temperature: int = 5
 
 @export_group("Pricing")
-@export var selling_price: int = 0:
-	set(p_price):
-		if p_price != selling_price:
-			selling_price = p_price
-			update_configuration_warnings()
-@export var seed_cost: int = 0:
-	set(p_cost):
-		if p_cost != seed_cost:
-			seed_cost = p_cost
-			update_configuration_warnings()
+@export_range(0, 100, 5, "or_greater") var selling_price: int = 0
+@export_range(0, 100, 5, "or_greater") var seed_cost: int = 0
+
+@export_group("Debug")
+# Change the default spawn growth state. Should be 0
+@export_range(0, 200, 1) var growth: int = 0 : set = _set_growth
 
 # Public variables
-var growth: int = 0 : set = _set_growth
 var growth_stage: int = 0
 var sick: bool = false
 var sprite2d: Sprite2D
@@ -69,8 +64,8 @@ func _get_configuration_warnings():
 	var warnings = []
 	if species == "":
 		warnings.append("Please set `species` to a non-empty value.")
-	if seed_cost < 0 or selling_price < 0:
-		warnings.append("Pricing values should be positive.")
+	#if seed_cost < 0 or selling_price < 0:
+	#	warnings.append("Pricing values should be positive.")
 	# Returning an empty array means "no warning".
 	return warnings
 
@@ -103,7 +98,9 @@ func _set_growth(new_growth: int) -> void:
 		sprite2d.frame = NUMBER_OF_STAGES - 1
 		# Frame is zero-indexed, starts at 0 and ends at 3 if Hframes=4
 	else:
-		sprite2d.frame = (growth * NUMBER_OF_STAGES-1) / max_growth
+		@warning_ignore("integer_division")
+		sprite2d.frame = (growth * (NUMBER_OF_STAGES-1)) / max_growth
+		# print((growth * (NUMBER_OF_STAGES-1)) / max_growth)
 		# Mathematic sorcery that should always give a number between
 		# 0 and the max Frame index for any number bewteen 0 and
 		# max_growth. We could even ditch the "if is_mature()"
