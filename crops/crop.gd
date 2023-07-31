@@ -44,14 +44,17 @@ enum FAMILIES {
 @export_range(0, 100, 5, "or_greater") var selling_price: int = 0
 @export_range(0, 100, 5, "or_greater") var seed_cost: int = 0
 
-@export_group("Debug")
+# @export_group("Debug")
 # Change the default spawn growth state. Should be 0
-@export_range(0, 200, 1) var growth: int = 0 : set = _set_growth
+# @export_range(0, 200, 1) var growth: int = 0 : set = _set_growth
 
 # Public variables
+var growth: int = 0 : set = _set_growth
 var growth_stage: int = 0
 var sick: bool = false
 var sprite2d: Sprite2D
+
+# @onready var sprite2d: Sprite2D = self.get_node("Sprite2D")
 
 # Built-in virtual methods
 func _ready() -> void:
@@ -64,8 +67,6 @@ func _get_configuration_warnings():
 	var warnings = []
 	if species == "":
 		warnings.append("Please set `species` to a non-empty value.")
-	#if seed_cost < 0 or selling_price < 0:
-	#	warnings.append("Pricing values should be positive.")
 	# Returning an empty array means "no warning".
 	return warnings
 
@@ -83,7 +84,7 @@ func grow(amount : int) -> void:
 	_set_growth(growth + amount)
 
 func harvest() -> void:
-	if growth == max_growth:
+	if is_mature():
 		# drop fruit items
 		pass # TO IMPLEMENT
 	else:
@@ -100,7 +101,6 @@ func _set_growth(new_growth: int) -> void:
 	else:
 		@warning_ignore("integer_division")
 		sprite2d.frame = (growth * (NUMBER_OF_STAGES-1)) / max_growth
-		# print((growth * (NUMBER_OF_STAGES-1)) / max_growth)
 		# Mathematic sorcery that should always give a number between
 		# 0 and the max Frame index for any number bewteen 0 and
 		# max_growth. We could even ditch the "if is_mature()"
