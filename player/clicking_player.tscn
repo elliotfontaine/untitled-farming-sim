@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://bs0bdore5v37h"]
+[gd_scene load_steps=2 format=3 uid="uid://bs0bdore5v37h"]
+
+[ext_resource type="Script" path="res://player/clicking_player.gd" id="1_hn223"]
 
 [node name="ClickingPlayer" type="Node2D"]
+script = ExtResource("1_hn223")

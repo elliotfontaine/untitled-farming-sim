@@ -6,5 +6,5 @@
 [node name="Carrot" type="Node2D"]
 script = ExtResource("1_s6a2y")
 texture = ExtResource("2_xytog")
-species = "Carror"
+species = "Carrot"
 family = 4
