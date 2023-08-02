@@ -2,7 +2,7 @@ extends TileMap
 
 ## The TileMap for our main level where the farm exist
 
-# A better than these hardcoded enums should be found. Ok for now, but
+# A better solution than these hardcoded enums should be found. Ok for now, but
 # has to be automated to allow us to easily add new crops.
 
 ## For access by name to the different layers. Should be kept
@@ -25,10 +25,11 @@ enum SOURCE_ID {
 	crops_collection,
 	blue_house = 16,
 	red_house = 17
+	# etc if needed
 }
 
-## Once again, for the TileSetScenesCollectionSource 
-enum CROP_ID {
+## Once again, for the TileSetScenesCollectionSource IDs
+enum CROPS {
 	beet,
 	carrot,
 	cauliflower,
@@ -41,22 +42,21 @@ enum CROP_ID {
 	wheat
 }
 
-# public attributes
-var crops_collection_source = tile_set.get_source(SOURCE_ID.crops_collection)
+# Private variables
+
+## Scene Collection inside the tileset that holds the crops scenes.
+var crops_collection_source: TileSetSource = tile_set.get_source(SOURCE_ID.crops_collection)
+## Dictionary of node references to the crops existing on the TileMap.
+var crop_scenes: Dictionary
+# Note: Erasing elements while iterating over dictionaries is not supported and
+# will result in unpredictable behavior. https://docs.godotengine.org/en/stable/classes/class_dictionary.html
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# this is just to debug / test script for now
-#	erase_cell(LAYERS.ground, Vector2i(11, 11))
-	add_crop(Vector2i(14,10), CROP_ID.potato)
-	add_crop(Vector2i(14,10), CROP_ID.carrot)
-	add_crop(Vector2i(14,8), CROP_ID.potato)
-#	add_crop(Vector2i(14,11), CROP_ID.carrot)
-#	remove_crop(Vector2i(14,11))
-#
-#	add_crop(Vector2i(14,10), CROP_ID.carrot)
-#	add_crop(Vector2i(14,11), CROP_ID.carrot)
-
+	print("start: ",self.get_children())
+	add_crop(Vector2i(14,10), CROPS.potato)
+	print("after add_crop: ", self.get_children())
 	pass # Replace with function body.
 
 
@@ -64,8 +64,12 @@ func _ready():
 func _process(_delta):
 	pass
 
+
 # Public methods
-func add_crop(coords: Vector2i, crop_scene_id: int = 0):
+
+## Place a crop tile to the TileMap at the given coordinates. Will place beet by
+## default if no id specified.
+func add_crop(coords: Vector2i, crop_scene_id: int = 0) -> void:
 	if can_place_crop(coords):
 		set_cell(
 			LAYERS.crops,
@@ -74,14 +78,30 @@ func add_crop(coords: Vector2i, crop_scene_id: int = 0):
 			Vector2i.ZERO,
 			crop_scene_id
 		)
+		await self.child_entered_tree # Needed because set_cell with Scenes takes 1 process step
+		crop_scenes[coords] = get_children()[-1] # Hopefully it works!
 	else:
-		push_warning("Invalid tile for crop placement.")
-	
+		push_warning("Invalid tile (%s) for crop placement." % coords)
+
+## Removes a crop from the tilemap and the crop scene from the Tree.
 func remove_crop(coords: Vector2i) -> void:
-	erase_cell(LAYERS.crops, coords)
+	if crop_scenes.has(coords):
+		erase_cell(LAYERS.crops, coords)
+		crop_scenes[coords].queue_free()
+		crop_scenes.erase(coords)
+	else:
+		push_warning("No crop tile to delete at %s." % coords)
+
+## Returns a reference to the crop Scene at the given coordinates if it exists,
+## otherwise returns null. YOU SHOULD NOT USE THE REFERENCE TO DELETE THE SCENE
+func get_crop(coords: Vector2i) -> Crop:
+	if crop_scenes.has(coords):
+		return crop_scenes[coords]
+	else:
+		return null
 
 
-# private methods
+# Private methods
 
 ## Check if a given cell at a certain layer has a tile in it. Return true if
 ## the cell is empty.
@@ -102,22 +122,4 @@ func can_place_crop(coords: Vector2i) -> bool:
 		if ground_cell_data.get_custom_data("can_place"):
 			return true
 	return false
-#	# Get the ID of the tile at the given coordinates from the ground layer
-#	var ground_cell_data = get_cell_tile_data(LAYERS.ground, coords)
-#	var obstacle_cell_data = get_cell_tile_data(LAYERS.obstacle, coords)
-#	# if the ground exists, continue
-#	if ground_cell_data:
-#		# check if a tile has been marked with "can_place" -> true
-#		if is_tile_located(LAYERS.crops, coords) and ground_cell_data.get_custom_data("can_place"):
-#			return true
-#	return false
 
-# = is tile empty ?
-func is_tile_located(layer : LAYERS, coords : Vector2i) -> bool:
-	# Get a list of all the cells on a given layer
-	var cells_array = get_used_cells(layer)
-	# loop through the cells and check if it matches the coords inputed
-	for x in range(cells_array.size()):
-		if cells_array[x] == coords:
-			return false
-	return true
