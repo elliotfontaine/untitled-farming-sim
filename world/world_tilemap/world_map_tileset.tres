@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=43 format=3 uid="uid://cwsblrq7g17wg"]
+[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://cwsblrq7g17wg"]
 
 [ext_resource type="Texture2D" uid="uid://gnp235dgwhij" path="res://world/world_tilemap/assets/tileset_tdfarmtiles_grass.png" id="1_iipng"]
 [ext_resource type="Texture2D" uid="uid://edqqfbegr1ou" path="res://world/world_tilemap/assets/tileset_tdfarmtiles_rockypath.png" id="2_3oora"]
@@ -12,18 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dvfi2gfgyqanm" path="res://world/world_tilemap/assets/tdfarmobj_tree_0_1.png" id="10_1wshf"]
 [ext_resource type="Texture2D" uid="uid://bw8cha8vagdyq" path="res://world/world_tilemap/assets/tdfarmobj_tree_0_2.png" id="11_ryalk"]
 [ext_resource type="Texture2D" uid="uid://cmviayln68wci" path="res://world/world_tilemap/assets/tileset_tdfarmtiles_dirtwet.png" id="12_ky1e8"]
-[ext_resource type="PackedScene" uid="uid://o11pc128wk7c" path="res://crops/crop_species/tomato.tscn" id="12_qgrrf"]
-[ext_resource type="PackedScene" uid="uid://dq4nnkr2m34by" path="res://crops/crop_species/turnip.tscn" id="13_jj82s"]
 [ext_resource type="Texture2D" uid="uid://b08xycuhsrrub" path="res://world/world_tilemap/assets/tileset_tdfarmtiles_dirt.png" id="13_uxrhq"]
 [ext_resource type="Texture2D" uid="uid://b1rm62gaft40i" path="res://world/world_tilemap/assets/large_rock_sheet.png" id="14_ll84v"]
-[ext_resource type="PackedScene" uid="uid://bxtxvgohjtibm" path="res://crops/crop_species/wheat.tscn" id="14_lo3ub"]
-[ext_resource type="PackedScene" uid="uid://c2s31d8ovdfnw" path="res://crops/crop_species/beet.tscn" id="15_lmgw3"]
-[ext_resource type="PackedScene" uid="uid://crbv5r7jfo7kl" path="res://crops/crop_species/carrot.tscn" id="16_hw70t"]
-[ext_resource type="PackedScene" uid="uid://5ptybkilcmce" path="res://crops/crop_species/cauliflower.tscn" id="17_6ngtf"]
-[ext_resource type="PackedScene" uid="uid://cov0jud3r1mur" path="res://crops/crop_species/french_beans.tscn" id="18_mnvck"]
-[ext_resource type="PackedScene" uid="uid://dndos1oxg1lrb" path="res://crops/crop_species/onion.tscn" id="19_efum1"]
-[ext_resource type="PackedScene" uid="uid://cvfp4pq6xf55t" path="res://crops/crop_species/potato.tscn" id="20_08o5c"]
-[ext_resource type="PackedScene" uid="uid://dkprd7qgym2fa" path="res://crops/crop_species/pumpkin.tscn" id="21_dn31l"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8c0rp"]
 tile_data = PackedInt32Array(0, 22, 0, 131072, 22, 0, 1, 23, 0, 65537, 22, 0, 2, 22, 0, 131074, 22, 0)
@@ -1813,19 +1803,6 @@ texture = ExtResource("13_uxrhq")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4e6n7"]
-resource_name = "crops_collection"
-scenes/0/scene = ExtResource("15_lmgw3")
-scenes/1/scene = ExtResource("16_hw70t")
-scenes/2/scene = ExtResource("17_6ngtf")
-scenes/3/scene = ExtResource("18_mnvck")
-scenes/4/scene = ExtResource("19_efum1")
-scenes/5/scene = ExtResource("20_08o5c")
-scenes/6/scene = ExtResource("21_dn31l")
-scenes/7/scene = ExtResource("12_qgrrf")
-scenes/8/scene = ExtResource("13_jj82s")
-scenes/9/scene = ExtResource("14_lo3ub")
-
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -1852,7 +1829,6 @@ sources/20 = SubResource("TileSetAtlasSource_s45qp")
 sources/22 = SubResource("TileSetAtlasSource_fbdba")
 sources/23 = SubResource("TileSetAtlasSource_bpihk")
 sources/24 = SubResource("TileSetAtlasSource_htvob")
-sources/5 = SubResource("TileSetScenesCollectionSource_4e6n7")
 sources/18 = SubResource("TileSetAtlasSource_qwndw")
 sources/21 = SubResource("TileSetAtlasSource_nj13m")
 pattern_0 = SubResource("TileMapPattern_8c0rp")
