@@ -26,8 +26,10 @@ func _unhandled_input(_event) -> void:
 	var tile_mouse_pos = tile_map.local_to_map(mouse_pos)
 	if Input.is_action_pressed("add_crop"):
 		tile_map.add_crop(tile_mouse_pos, &"wheat")
+		SoundHandler.play_sound(0)
 	elif Input.is_action_pressed("remove_crop"):
 		tile_map.remove_crop(tile_mouse_pos)
+		SoundHandler.play_sound(0)
 	elif Input.is_action_pressed("grow_crops"):
 		for crop in tile_map.crop_instances.values():
 			crop.grow(120)

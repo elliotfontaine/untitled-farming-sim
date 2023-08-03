@@ -7,5 +7,3 @@
 script = ExtResource("1_0tcb3")
 
 [node name="TitleScreen" parent="." instance=ExtResource("1_ipabc")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

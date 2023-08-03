@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 
 Panku="*res://addons/panku_console/console.tscn"
 CropsPreloader="*res://crops/crops_preloader.tscn"
+SoundHandler="*res://sounds/SoundScene.tscn"
 
 [display]
 
