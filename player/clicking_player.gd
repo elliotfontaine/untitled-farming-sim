@@ -49,12 +49,12 @@ func _handle_mouse_click(event: InputEventMouse) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var tile_mouse_pos = tile_map.local_to_map(mouse_pos)
 	# Handle the event
-	if Input.is_action_pressed("add_crop"):
+	if event.is_action_pressed("add_crop"):
 		tile_map.add_crop(tile_mouse_pos, selected_crop)
-    SoundHandler.play_sound(0)
-	elif Input.is_action_pressed("remove_crop"):
+		SoundHandler.play_sound(0)
+	elif event.is_action_pressed("remove_crop"):
 		tile_map.remove_crop(tile_mouse_pos)
-    SoundHandler.play_sound(0)
+		SoundHandler.play_sound(0)
 
 ## Docstring
 func _handle_key_press(event: InputEventKey) -> void:
