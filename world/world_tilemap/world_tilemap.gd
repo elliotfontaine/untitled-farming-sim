@@ -40,7 +40,7 @@ func add_crop(coords: Vector2i, crop_name: StringName) -> void:
 		return
 	else:
 		# Add the crop to the scene as a child of the TileMap
-		var new_crop: Crop = crop_scenes.get_resource(crop_name).instantiate()
+		var new_crop: Crop = CropsPreloader.get_resource(crop_name).instantiate()
 		new_crop.position = map_to_local(coords)
 		add_child(new_crop)
 		# Add the crop to the dictionary for presence lookup.
