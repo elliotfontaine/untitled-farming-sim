@@ -56,7 +56,7 @@ func _ready():
 		PankuModuleCheckLatestRelease.new(),
 		PankuModuleInteractiveShell.new(),
 		PankuModuleGeneralSettings.new(),
-		PankuModuleDataController.new(),
+#		PankuModuleDataController.new(),
 		PankuModuleScreenCrtEffect.new(),
 		PankuModuleExpressionMonitor.new(),
 		PankuModuleTextureViewer.new(),
