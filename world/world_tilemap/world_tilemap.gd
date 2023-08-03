@@ -9,8 +9,11 @@ enum LAYERS {
 	dirt,
 	ground,
 	crops,
-	obstacles
+	obstacles,
+	tile_selector
 }
+
+@export var tile_selector_source_id: int = 5
 
 # Public variables
 
@@ -18,6 +21,11 @@ enum LAYERS {
 var crop_instances: Dictionary
 # Note: Erasing elements while iterating over dictionaries is not supported and
 # will result in unpredictable behavior. https://docs.godotengine.org/en/stable/classes/class_dictionary.html
+
+# Private variables
+
+## Cursor position
+var _selector_pos : Vector2i = Vector2i(-100, -100)
 
 @onready var crop_scenes: ResourcePreloader = get_node("/root/CropsPreloader")
 
@@ -45,7 +53,7 @@ func add_crop(coords: Vector2i, crop_name: StringName) -> void:
 		add_child(new_crop)
 		# Add the crop to the dictionary for presence lookup.
 		crop_instances[coords] = new_crop
-		print_debug(crop_instances)
+		#print_debug(crop_instances)
 		
 
 ## Removes a crop from the tilemap and the crop scene from the Tree.
@@ -55,7 +63,7 @@ func remove_crop(coords: Vector2i) -> void:
 		crop_instances[coords].queue_free()
 		# And then remove it from the dictionary
 		crop_instances.erase(coords)
-		print_debug(crop_instances)
+		#print_debug(crop_instances)
 	else:
 		pass
 		# push_warning("No crop tile to delete at %s." % coords)
@@ -68,7 +76,21 @@ func get_crop(coords: Vector2i) -> Crop:
 	else:
 		return null
 
-
+## Move the tile selector (square cursor) to the given coordinate.
+func set_tile_selector(coords: Vector2i) -> void:
+	if coords == _selector_pos:
+		return
+	elif _can_place_crop(coords):
+		set_cell(LAYERS.tile_selector, coords, tile_selector_source_id, Vector2i(0,0))
+		erase_cell(LAYERS.tile_selector, _selector_pos)
+		_selector_pos = coords
+	else:
+		set_cell(LAYERS.tile_selector, coords, tile_selector_source_id, Vector2i(0,1))
+		erase_cell(LAYERS.tile_selector, _selector_pos)
+		_selector_pos = coords
+#		erase_cell(LAYERS.tile_selector, _selector_pos)
+#		_selector_pos = Vector2i(-100, -100)
+		
 # Private methods
 
 ## Check if a given cell at a certain layer has a tile in it. Return true if
@@ -84,11 +106,10 @@ func _is_cell_empty(layer: LAYERS, coords: Vector2i) -> bool:
 ## custom data for the tile on the ground layer.
 func _can_place_crop(coords: Vector2i) -> bool:
 	if (
-		!_is_cell_empty(LAYERS.ground, coords) # could be removed ?
-		and _is_cell_empty(LAYERS.obstacles, coords)
+		_is_cell_empty(LAYERS.obstacles, coords)
 		and _is_cell_empty(LAYERS.crops, coords)
 	):
 		var ground_cell_data = get_cell_tile_data(LAYERS.ground, coords)
-		if ground_cell_data.get_custom_data("can_place"):
+		if ground_cell_data and ground_cell_data.get_custom_data("can_place"):
 			return true
 	return false
