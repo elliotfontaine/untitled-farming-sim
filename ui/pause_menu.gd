@@ -3,7 +3,7 @@ extends Control
 @onready var menu_ui = %MenuUI
 @onready var options_menu = %OptionsMenu
 @onready var buttons_menu = %ButtonsMenu
-#@onready var music = $"res://sounds/SoundScene.tscn"
+@onready var music = "res://sounds/SoundScene.tscn"
 
 var is_open : bool = false
 
@@ -45,9 +45,13 @@ func _on_options_pressed():
 	buttons_menu.visible = false
 
 #TOGGLES GAME MUSIC ON AND OFF
-#func _on_music_toggle_toggled(button_pressed):
-	#if button_pressed:
-		#music.stream.paused()
+func _on_music_toggle_toggled(button_pressed):
+	if button_pressed:
+		SoundHandler.can_play = false
+		SoundHandler.stop_music()
+	else:
+		SoundHandler.can_play = true
+		SoundHandler.play_music()
 
 #RETURNS OPTION MENU BACK TO MAIN PAUSE MENU
 func _on_back_button_pressed():
