@@ -3,10 +3,15 @@ extends Node
 #Variables to control what is displaying on the screen
 @onready var main_menu_container = %MainMenuContainer
 @onready var options_container = %OptionsContainer
+@onready var bg_pan = $AnimationPlayer
 
 signal level_changed(level_name)
 
 @export_file("*.tscn") var world_level: String = "res://world/world.tscn"
+
+
+func _ready():
+	bg_pan.play("bg_panning")
 
 # --------- PLAY BUTTON ---------
 #--------------------------------
