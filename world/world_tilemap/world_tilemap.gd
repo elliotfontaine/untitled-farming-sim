@@ -90,7 +90,11 @@ func set_tile_selector(coords: Vector2i) -> void:
 		_selector_pos = coords
 #		erase_cell(LAYERS.tile_selector, _selector_pos)
 #		_selector_pos = Vector2i(-100, -100)
-		
+
+## Edit the tileset (tilemap?) to change the season visually.
+func set_season_tileset() -> void:
+	pass
+
 # Private methods
 
 ## Check if a given cell at a certain layer has a tile in it. Return true if

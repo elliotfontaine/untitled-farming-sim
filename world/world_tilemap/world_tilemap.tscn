@@ -44,3 +44,4 @@ layer_5/y_sort_origin = 0
 layer_5/z_index = 0
 layer_5/tile_data = PackedInt32Array()
 script = ExtResource("2_ckpi1")
+tile_selector_source_id = null
