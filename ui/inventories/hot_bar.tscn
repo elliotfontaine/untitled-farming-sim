@@ -1,0 +1,157 @@
+[gd_scene load_steps=14 format=3 uid="uid://bil1eavx6mtih"]
+
+[ext_resource type="Script" path="res://HotBar.gd" id="1_qqyor"]
+[ext_resource type="Texture2D" uid="uid://bn675v6biejh2" path="res://ui/assets/HotBar Container.png" id="2_5d7vx"]
+[ext_resource type="Texture2D" uid="uid://scftvouvc6gk" path="res://ui/assets/item_slot.png" id="3_3fai8"]
+[ext_resource type="PackedScene" uid="uid://c2s31d8ovdfnw" path="res://crops/crop_species/beet.tscn" id="4_uv387"]
+[ext_resource type="PackedScene" uid="uid://cvfp4pq6xf55t" path="res://crops/crop_species/potato.tscn" id="6_lh1wm"]
+[ext_resource type="PackedScene" uid="uid://o11pc128wk7c" path="res://crops/crop_species/tomato.tscn" id="8_ukt80"]
+[ext_resource type="PackedScene" uid="uid://cov0jud3r1mur" path="res://crops/crop_species/french_beans.tscn" id="10_or8jd"]
+[ext_resource type="PackedScene" uid="uid://dkprd7qgym2fa" path="res://crops/crop_species/pumpkin.tscn" id="12_pcufq"]
+[ext_resource type="PackedScene" uid="uid://crbv5r7jfo7kl" path="res://crops/crop_species/carrot.tscn" id="14_et2tv"]
+[ext_resource type="PackedScene" uid="uid://dndos1oxg1lrb" path="res://crops/crop_species/onion.tscn" id="16_0egpu"]
+[ext_resource type="PackedScene" uid="uid://5ptybkilcmce" path="res://crops/crop_species/cauliflower.tscn" id="18_cpwko"]
+[ext_resource type="PackedScene" uid="uid://dq4nnkr2m34by" path="res://crops/crop_species/turnip.tscn" id="20_yjsxt"]
+[ext_resource type="PackedScene" uid="uid://bxtxvgohjtibm" path="res://crops/crop_species/wheat.tscn" id="22_7qaan"]
+
+[node name="HotBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qqyor")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -40.0
+offset_right = 189.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_5d7vx")
+patch_margin_left = 20
+patch_margin_top = 5
+patch_margin_right = 20
+patch_margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(16, 16)
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 11.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 10
+
+[node name="BeetSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Beet"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Beet" parent="NinePatchRect/GridContainer/BeetSlot" instance=ExtResource("4_uv387")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="PotatoSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Potato"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Potato" parent="NinePatchRect/GridContainer/PotatoSlot" instance=ExtResource("6_lh1wm")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="TomatoSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Tomato"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Tomato" parent="NinePatchRect/GridContainer/TomatoSlot" instance=ExtResource("8_ukt80")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="FrenchBeansSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "French Beans"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="FrenchBeans" parent="NinePatchRect/GridContainer/FrenchBeansSlot" instance=ExtResource("10_or8jd")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="PumpkinBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Pumpkin"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Pumpkin" parent="NinePatchRect/GridContainer/PumpkinBox" instance=ExtResource("12_pcufq")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="CarrotBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Carrot"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Carrot" parent="NinePatchRect/GridContainer/CarrotBox" instance=ExtResource("14_et2tv")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="OnionBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Onion"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Onion" parent="NinePatchRect/GridContainer/OnionBox" instance=ExtResource("16_0egpu")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="CauliflowerBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Cauliflower"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Cauliflower" parent="NinePatchRect/GridContainer/CauliflowerBox" instance=ExtResource("18_cpwko")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="TurnipBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Turnip"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Turnip" parent="NinePatchRect/GridContainer/TurnipBox" instance=ExtResource("20_yjsxt")]
+position = Vector2(16, 16)
+state = 1
+
+[node name="WheatSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Wheat"
+texture_normal = ExtResource("3_3fai8")
+stretch_mode = 5
+
+[node name="Wheat" parent="NinePatchRect/GridContainer/WheatSlot" instance=ExtResource("22_7qaan")]
+position = Vector2(16, 16)
+state = 1
