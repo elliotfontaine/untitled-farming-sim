@@ -45,7 +45,7 @@ func _on_options_pressed():
 	buttons_menu.visible = false
 
 #TOGGLES GAME MUSIC ON AND OFF
-func _on_music_toggle_toggled(button_pressed):
+#func _on_music_toggle_toggled(button_pressed):
 	#if button_pressed:
 		#music.stream.paused()
 
