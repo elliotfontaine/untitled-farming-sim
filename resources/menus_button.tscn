@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d030vm6kult1a"]
+[gd_scene load_steps=5 format=3 uid="uid://d030vm6kult1a"]
 
-[ext_resource type="Texture2D" uid="uid://kq6nh4s2hwcw" path="res://assets/images/hud/menus_button.png" id="1_6dikq"]
+[ext_resource type="Texture2D" uid="uid://dq2f2qx4c7p80" path="res://assets/images/hud/menus_button_unpressed.png" id="1_r40vd"]
 [ext_resource type="FontFile" uid="uid://bxyb23qbuo64n" path="res://assets/Fonts/Kenney Pixel.ttf" id="2_odayu"]
+[ext_resource type="Texture2D" uid="uid://ddvomf6ph8hm2" path="res://assets/images/hud/menus_button_pressed.png" id="2_rjpmm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bvc23"]
 font = ExtResource("2_odayu")
@@ -15,12 +16,15 @@ custom_minimum_size = Vector2(48, 16)
 offset_right = 48.0
 offset_bottom = 16.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6dikq")
-centered = false
-hframes = 2
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 15.0
+texture_normal = ExtResource("1_r40vd")
+texture_pressed = ExtResource("2_rjpmm")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
 offset_left = 1.0
 offset_right = 49.0
 offset_bottom = 15.0

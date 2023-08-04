@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=3 uid="uid://ffyqsla8shd6"]
+
+[ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_kh2eu"]
+[ext_resource type="PackedScene" uid="uid://d030vm6kult1a" path="res://resources/menus_button.tscn" id="2_cpu8f"]
+[ext_resource type="Texture2D" uid="uid://d25i1tcwch7hk" path="res://ui/assets/Background.png" id="2_yxwno"]
+[ext_resource type="Texture2D" uid="uid://dxy77kvavm3m6" path="res://assets/images/hud/x BUTTON on.png" id="4_3bv6e"]
+[ext_resource type="FontFile" uid="uid://bxyb23qbuo64n" path="res://assets/Fonts/Kenney Pixel.ttf" id="4_ftpg0"]
+[ext_resource type="Texture2D" uid="uid://djptv46amcynj" path="res://assets/images/hud/x BUTTON off.png" id="5_ih075"]
+[ext_resource type="Texture2D" uid="uid://dq2f2qx4c7p80" path="res://assets/images/hud/menus_button_unpressed.png" id="7_lo3fd"]
+[ext_resource type="Texture2D" uid="uid://ddvomf6ph8hm2" path="res://assets/images/hud/menus_button_pressed.png" id="8_v3qu0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ll64e"]
+line_spacing = 0.0
+font = ExtResource("4_ftpg0")
+font_color = Color(0.878431, 0.878431, 0.878431, 1)
+shadow_color = Color(0, 0, 0, 0.639216)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kh2eu")
+metadata/_edit_lock_ = true
+
+[node name="MenuUI" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 64)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -61.0
+offset_right = -1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_yxwno")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ButtonsMenu" type="VBoxContainer" parent="MenuUI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" parent="MenuUI/ButtonsMenu" instance=ExtResource("2_cpu8f")]
+layout_mode = 2
+
+[node name="Label" parent="MenuUI/ButtonsMenu/Options/TextureButton" index="0"]
+offset_right = 46.0
+text = "OPTIONS"
+
+[node name="options" type="Button" parent="MenuUI/ButtonsMenu/Options"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 14.0
+
+[node name="Exit" parent="MenuUI/ButtonsMenu" instance=ExtResource("2_cpu8f")]
+layout_mode = 2
+
+[node name="Label" parent="MenuUI/ButtonsMenu/Exit/TextureButton" index="0"]
+text = "EXIT"
+
+[node name="exit" type="Button" parent="MenuUI/ButtonsMenu/Exit"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 15.0
+
+[node name="OptionsMenu" type="VBoxContainer" parent="MenuUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MusicToggle" type="CheckBox" parent="MenuUI/OptionsMenu"]
+layout_mode = 2
+tooltip_text = "Toggles the music on or off"
+theme_override_fonts/font = ExtResource("4_ftpg0")
+theme_override_font_sizes/font_size = 0
+theme_override_icons/checked = ExtResource("4_3bv6e")
+theme_override_icons/unchecked = ExtResource("5_ih075")
+text = "Music"
+
+[node name="BackButton" type="TextureButton" parent="MenuUI/OptionsMenu"]
+layout_mode = 2
+texture_normal = ExtResource("7_lo3fd")
+texture_pressed = ExtResource("8_v3qu0")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuUI/OptionsMenu/BackButton"]
+layout_mode = 0
+offset_right = 53.0
+offset_bottom = 26.0
+text = "BACK"
+label_settings = SubResource("LabelSettings_ll64e")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MenuUI/ButtonsMenu/Options/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuUI/ButtonsMenu/Exit/exit" to="." method="_on_exit_pressed"]
+[connection signal="toggled" from="MenuUI/OptionsMenu/MusicToggle" to="." method="_on_music_toggle_toggled"]
+[connection signal="pressed" from="MenuUI/OptionsMenu/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="MenuUI/ButtonsMenu/Options"]
+[editable path="MenuUI/ButtonsMenu/Exit"]
