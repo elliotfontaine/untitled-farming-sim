@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://c78l1fc2erku4"]
+
+[ext_resource type="Script" path="res://sounds/Sound.gd" id="1_2fd36"]
+[ext_resource type="AudioStream" uid="uid://c7vtaqre0r6qp" path="res://sounds/Untitled_Farming_Sim_-_overture.mp3" id="2_vx1ct"]
+[ext_resource type="AudioStream" uid="uid://n00vhrhm0sek" path="res://sounds/_Soundstorm 6_Whips-LeatherRidingCrop-10_B05-09518_preview.mp3" id="3_bmw52"]
+
+[node name="Sound" type="AudioStreamPlayer"]
+stream = ExtResource("2_vx1ct")
+autoplay = true
+script = ExtResource("1_2fd36")
+_audioStreamPlayers = Array[AudioStream]([ExtResource("3_bmw52")])
