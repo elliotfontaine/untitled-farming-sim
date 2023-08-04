@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bil1eavx6mtih"]
+[gd_scene load_steps=13 format=3 uid="uid://bil1eavx6mtih"]
 
 [ext_resource type="Script" path="res://HotBar.gd" id="1_qqyor"]
 [ext_resource type="Texture2D" uid="uid://bn675v6biejh2" path="res://ui/assets/HotBar Container.png" id="2_5d7vx"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cglp1br8c7oav" path="res://ui/assets/greenbeanbox.png" id="7_f4mdy"]
 [ext_resource type="Texture2D" uid="uid://cfsy6eiih12um" path="res://ui/assets/pumpkinbox.png" id="8_64bga"]
 [ext_resource type="Texture2D" uid="uid://dmvico2c11dx6" path="res://ui/assets/carrotbox.png" id="9_1emci"]
-[ext_resource type="Texture2D" uid="uid://brpuux7wiols5" path="res://ui/assets/turnipbox.png" id="10_1txe3"]
+[ext_resource type="Texture2D" uid="uid://f7uumxji8r2v" path="res://ui/assets/turnipbox.png" id="10_1txe3"]
+[ext_resource type="Texture2D" uid="uid://brpuux7wiols5" path="res://ui/assets/onionbox.png" id="10_xngtd"]
+[ext_resource type="Texture2D" uid="uid://dy6tbh73slohi" path="res://ui/assets/cauliflowerbox.png" id="11_qii5v"]
 
 [node name="HotBar" type="Control"]
 layout_mode = 3
@@ -21,77 +23,94 @@ grow_vertical = 2
 script = ExtResource("1_qqyor")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 315.0
-offset_right = 628.0
-offset_bottom = 355.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -40.0
+offset_right = 189.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("2_5d7vx")
 patch_margin_left = 20
 patch_margin_top = 5
 patch_margin_right = 20
 patch_margin_bottom = 5
 
-[node name="WheatSlot" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 4.0
-offset_right = 44.0
-offset_bottom = 40.0
-texture_normal = ExtResource("3_6pfge")
-stretch_mode = 5
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(16, 16)
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 11.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 10
 
-[node name="BeetSlot" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 37.0
-offset_right = 77.0
-offset_bottom = 40.0
+[node name="BeetSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Beet"
 texture_normal = ExtResource("4_by5i4")
 stretch_mode = 5
 
-[node name="PotatoSlot" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 70.0
-offset_right = 110.0
-offset_bottom = 40.0
+[node name="PotatoSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Potato"
 texture_normal = ExtResource("5_6ji0n")
 stretch_mode = 5
 
-[node name="TomatoSlot" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 103.0
-offset_right = 143.0
-offset_bottom = 40.0
+[node name="TomatoSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Tomato"
 texture_normal = ExtResource("6_k0x4o")
 stretch_mode = 5
 
-[node name="GreenBeanSlot" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 136.0
-offset_right = 176.0
-offset_bottom = 40.0
+[node name="FrenchBeansSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "French Beans"
 texture_normal = ExtResource("7_f4mdy")
 stretch_mode = 5
 
-[node name="PumpkinBox" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 170.0
-offset_right = 210.0
-offset_bottom = 40.0
+[node name="PumpkinBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Pumpkin"
 texture_normal = ExtResource("8_64bga")
 stretch_mode = 5
 
-[node name="CarrotBox" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 203.0
-offset_right = 243.0
-offset_bottom = 40.0
+[node name="CarrotBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Carrot"
 texture_normal = ExtResource("9_1emci")
 stretch_mode = 5
 
-[node name="TurnipBox" type="TextureButton" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 236.0
-offset_right = 276.0
-offset_bottom = 40.0
+[node name="OnionBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Onion"
+texture_normal = ExtResource("10_xngtd")
+stretch_mode = 5
+
+[node name="CauliflowerBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Cauliflower"
+texture_normal = ExtResource("11_qii5v")
+stretch_mode = 5
+
+[node name="TurnipBox" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Turnip"
 texture_normal = ExtResource("10_1txe3")
+stretch_mode = 5
+
+[node name="WheatSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+layout_mode = 2
+tooltip_text = "Wheat"
+texture_normal = ExtResource("3_6pfge")
 stretch_mode = 5
