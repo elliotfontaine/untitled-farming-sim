@@ -17,12 +17,23 @@ enum FAMILIES {
 	AMARYLLIDACEAE
 }
 
+## Doc String
+enum CROP_STATE {
+	CROP,
+	VEGETABLE
+}
+
 @export_group("Resource")
+## If it is a crop (on land) or a fruit (inventory)
+@export var state: CROP_STATE = CROP_STATE.CROP
 ## Number of Hframes in the Texture2D. Will be used
-## to dynamically change the texture based on growth
+## to dynamically change the crop texture based on growth
 @export var NUMBER_OF_STAGES: int = 4
-## Texture atlas
-@export var texture: CompressedTexture2D
+## Crop Texture. An atlas of stages.
+@export var crop_texture: CompressedTexture2D
+## Vegetable Texture
+@export var vegetable_texture: CompressedTexture2D
+
 
 @export_group("Plant")
 ## Name of the crop. Used as an identifier.
@@ -34,7 +45,9 @@ enum FAMILIES {
 ## Plant family. Influences disease outbreak.
 @export var family: FAMILIES
 ## Maximum growth in Growing degree-days
-@export_range(0, 400, 10, "or_greater") var max_growth: int = 200
+@export_range(0, 200, 10, "or_greater") var max_growth: int = 200
+## DocString
+@export_range(-100, 100, 5, "or_lower", "or_greater") var nitrogen_consumption: int = 0
 ## Baseline temperature in °C for the plant to grow. Its growth speed is
 ## proportionate to temperature minus this baseline. If temperature
 ## gets below the baseline, plant development will stop.
@@ -60,8 +73,11 @@ var sprite2d: Sprite2D
 func _ready() -> void:
 	sprite2d = Sprite2D.new() # Create a new Sprite2D.
 	add_child(sprite2d) # Add it as a child of this node.
-	sprite2d.texture = texture
-	sprite2d.hframes = NUMBER_OF_STAGES
+	if state == CROP_STATE.CROP:
+		sprite2d.texture = crop_texture
+		sprite2d.hframes = NUMBER_OF_STAGES
+	elif state == CROP_STATE.VEGETABLE:
+		sprite2d.texture = vegetable_texture
 
 func _get_configuration_warnings():
 	var warnings = []
