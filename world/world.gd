@@ -1,9 +1,9 @@
 extends Node2D
 
 # Public Variables
-const SEASONS = Global.SEASONS
-const MONTHS = Global.MONTHS
-const WEATHER = Global.WEATHER
+const SEASONS := Global.SEASONS
+const MONTHS := Global.MONTHS
+const WEATHER := Global.WEATHER
 const MED_TEMP: Dictionary = {
 	MONTHS.JANUARY: 4,
 	MONTHS.FEBRUARY: 4,
@@ -19,13 +19,18 @@ const MED_TEMP: Dictionary = {
 	MONTHS.DECEMBER: 4
 }
 ## Should be written/read by the save system if implemented.
-var world_data: Dictionary = {
-	"year": 1,
-	"season": SEASONS.SPRING,
-	"month": MONTHS.MARCH,
-	"temperature": 12,
-	"weather" : WEATHER.CLEAR
-}
+#var world_data: Dictionary = {
+#	"year": 1,
+#	"season": SEASONS.SPRING,
+#	"month": MONTHS.MARCH,
+#	"temperature": 12,
+#	"weather" : WEATHER.CLEAR
+#}
+var year: int = 1
+var season := SEASONS.SPRING
+var month := MONTHS.MARCH
+var temperature: int = MED_TEMP[MONTHS.MARCH]
+var weather := WEATHER.CLEAR
 
 # Onready variables
 
@@ -39,8 +44,18 @@ func _ready():
 	pass # Replace with function body.
 
 func _advance_calendar() -> void:
-	pass
-
+	if month in [MONTHS.MAY, MONTHS.AUGUST, MONTHS.NOVEMBER]:
+		season +=1
+	elif month == MONTHS.FEBRUARY:
+		season = SEASONS.SPRING
+	if month == MONTHS.DECEMBER:
+		month = MONTHS.JANUARY
+		year += 1
+	else:
+		month += 1
+	
+	
+	
 ## Compute the growth for the plant at a given cell,
 func _compute_growth(soil_data: SoilData) -> int:
 	return 0
