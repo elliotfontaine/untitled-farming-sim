@@ -10,7 +10,6 @@ y_sort_enabled = true
 script = ExtResource("1_3sxlu")
 
 [node name="WorldTileMap" parent="." instance=ExtResource("3_j1lef")]
-tile_selector_source_id = 5
 
 [node name="ClickingPlayerCharacter" parent="." instance=ExtResource("2_hvf84")]
 z_index = 1

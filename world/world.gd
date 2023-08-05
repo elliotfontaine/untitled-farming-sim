@@ -18,7 +18,7 @@ const MED_TEMP: Dictionary = {
 	MONTHS.NOVEMBER: 7,
 	MONTHS.DECEMBER: 4
 }
-## DocString
+## Should be written/read by the save system if implemented.
 var world_data: Dictionary = {
 	"year": 1,
 	"season": SEASONS.SPRING,

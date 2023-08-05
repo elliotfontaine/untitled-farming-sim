@@ -1,4 +1,4 @@
-class_name SoilData extends Node
+class_name SoilData extends Node2D
 
 ## Just a data class that stores values about the soil (e.g. nutrients, etc.)
 ## Can be used on the TileMap through its associated scene (soil_data.tscn).

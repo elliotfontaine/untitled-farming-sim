@@ -16,9 +16,11 @@ enum LAYERS {
 @export var tile_selector_source_id: int = 5
 
 # Public variables
-
+""
 ## Dictionary of node references to the crops existing on the TileMap.
 var crop_instances: Dictionary
+## Dictionary of node references to the SoilData nodes on the TileMap.
+var soildata_instances: Dictionary
 # Note: Erasing elements while iterating over dictionaries is not supported and
 # will result in unpredictable behavior. https://docs.godotengine.org/en/stable/classes/class_dictionary.html
 
@@ -26,13 +28,14 @@ var crop_instances: Dictionary
 
 ## Cursor position
 var _selector_pos : Vector2i = Vector2i(-100, -100)
+## Packed SoilData scene
+var _packed_soil: PackedScene = preload("res://world/world_tilemap/soil_data.tscn")
 
 @onready var crop_scenes: ResourcePreloader = get_node("/root/CropsPreloader")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_crop(Vector2i(14,10), "potato")
-	pass # Replace with function body.
+	_setup_soil_data()
 
 # Public methods
 
@@ -113,7 +116,23 @@ func _can_place_crop(coords: Vector2i) -> bool:
 		_is_cell_empty(LAYERS.obstacles, coords)
 		and _is_cell_empty(LAYERS.crops, coords)
 	):
-		var ground_cell_data = get_cell_tile_data(LAYERS.ground, coords)
+		var ground_cell_data: TileData = get_cell_tile_data(LAYERS.ground, coords)
 		if ground_cell_data and ground_cell_data.get_custom_data("can_place"):
 			return true
 	return false
+
+func _setup_soil_data() -> void:
+	var used_rect: Rect2i = get_used_rect()
+	for x in range(used_rect.position[0], used_rect.end[0]):
+		for y in range(used_rect.position[1], used_rect.end[1]):
+			# Add the SoilData to the scene as a child of the TileMap
+			var coords := Vector2i(x,y)
+			if _can_place_crop(coords):
+				var new_soildata: SoilData = _packed_soil.instantiate()
+				new_soildata.position = map_to_local(coords)
+				add_child(new_soildata)
+				# Add the SoilData to the dictionary for quick lookup.
+				soildata_instances[coords] = new_soildata
+	# print_debug(soildata_instances)
+
+	
