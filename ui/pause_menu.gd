@@ -1,5 +1,7 @@
 extends Control
 
+@export var title_screen: PackedScene = load("res://title_screen.tscn") 
+
 @onready var menu_ui = %MenuUI
 @onready var options_menu = %OptionsMenu
 @onready var buttons_menu = %ButtonsMenu
@@ -41,7 +43,10 @@ func CloseMenu():
 
 #EXITS GAME WHEN QUIT BUTTON IS PRESSED
 func _on_exit_pressed():
-	get_tree().quit()
+	var world = get_node("/root/Game/World")
+	if world and world.has_signal("level_changed"):
+		CloseMenu()
+		world.emit_signal("level_changed", title_screen)
 
 
 #OPENS OPTIONS MENU

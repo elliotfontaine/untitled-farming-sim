@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bskxqt6g35d5v"]
+[gd_scene load_steps=6 format=3 uid="uid://bskxqt6g35d5v"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3sxlu"]
 [ext_resource type="PackedScene" uid="uid://bvwjy580u0rc4" path="res://player/clicking_player_character.tscn" id="2_hvf84"]
@@ -21,6 +21,7 @@ position = Vector2(67, 116)
 [node name="GeneralUI" type="CanvasLayer" parent="."]
 
 [node name="MenuUi" parent="GeneralUI" instance=ExtResource("4_2qfxs")]
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HotBar" parent="HUD" instance=ExtResource("4_g4qgx")]
