@@ -76,7 +76,7 @@ func _handle_mouse_click(event: InputEventMouse) -> void:
 		SoundHandler.play_sound(0)
 	elif event.is_action_pressed("remove_crop"):
 		tile_map.remove_crop(tile_mouse_pos)
-		SoundHandler.play_sound(0)
+		SoundHandler.play_sound(1)
 
 ## Docstring
 func _handle_key_press(event: InputEventKey) -> void:
