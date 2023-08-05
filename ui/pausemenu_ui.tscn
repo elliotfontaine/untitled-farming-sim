@@ -23,8 +23,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_kh2eu")
 metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
 
 [node name="MenuUI" type="NinePatchRect" parent="."]
 unique_name_in_owner = true
@@ -99,6 +108,7 @@ offset_bottom = 40.0
 [node name="MusicToggle" type="CheckBox" parent="MenuUI/OptionsMenu"]
 layout_mode = 2
 tooltip_text = "Toggles the music on or off"
+focus_mode = 0
 theme_override_fonts/font = ExtResource("4_ftpg0")
 theme_override_font_sizes/font_size = 0
 theme_override_icons/checked = ExtResource("4_3bv6e")
