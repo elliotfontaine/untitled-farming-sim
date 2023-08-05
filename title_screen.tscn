@@ -69,7 +69,6 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="SeasonsGoneLogoTransparent" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(237, 123)
