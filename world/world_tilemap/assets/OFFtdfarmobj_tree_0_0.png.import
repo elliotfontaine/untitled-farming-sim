@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drlgso5rpy5wr"
-path="res://.godot/imported/tdfarmobj_tree_0_0.png-2c934466bc53942163f6efcbc177e5e3.ctex"
+uid="uid://dvr1lh3hwmhf1"
+path="res://.godot/imported/OFFtdfarmobj_tree_0_0.png-fec51d282c019c54b0469203128839c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://world/world_tilemap/assets/tdfarmobj_tree_0_0.png"
-dest_files=["res://.godot/imported/tdfarmobj_tree_0_0.png-2c934466bc53942163f6efcbc177e5e3.ctex"]
+source_file="res://world/world_tilemap/assets/OFFtdfarmobj_tree_0_0.png"
+dest_files=["res://.godot/imported/OFFtdfarmobj_tree_0_0.png-fec51d282c019c54b0469203128839c1.ctex"]
 
 [params]
 
