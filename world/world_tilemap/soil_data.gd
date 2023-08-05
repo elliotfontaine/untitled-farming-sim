@@ -17,7 +17,7 @@ var month_crop: Crop = null:
 	set(new_crop):
 		if new_crop == null:
 			total_month_unchanged = 0
-		elif new_crop == month_crop:
+		elif new_crop.FAMILIES == month_crop.FAMILIES:
 			total_month_unchanged += 1
 		else:
 			total_month_unchanged = 1
