@@ -3,6 +3,7 @@ extends Control
 @onready var menu_ui = %MenuUI
 @onready var options_menu = %OptionsMenu
 @onready var buttons_menu = %ButtonsMenu
+@onready var background: ColorRect = $Background
 @onready var music = "res://sounds/SoundScene.tscn"
 
 var is_open : bool = false
@@ -11,6 +12,8 @@ var is_open : bool = false
 #MAKES SURE PAUSE MENU IS CLOSED ON READY
 func _ready():
 	menu_ui.visible = false
+	background.visible = false
+	
 
 #ALLOWS PAUSE MENU TO BE TOGGLED WITH ESC KEY
 func _input(event):
@@ -24,6 +27,7 @@ func _input(event):
 func OpenMenu():
 		is_open = true
 		menu_ui.visible = true
+		background.visible = true
 		buttons_menu.visible = true
 		options_menu.visible = false
 		get_tree().paused = true
@@ -32,6 +36,7 @@ func OpenMenu():
 func CloseMenu():
 		is_open = false
 		menu_ui.visible = false
+		background.visible = false
 		get_tree().paused = false
 
 #EXITS GAME WHEN QUIT BUTTON IS PRESSED

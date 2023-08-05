@@ -27,6 +27,14 @@ mouse_filter = 1
 script = ExtResource("1_kh2eu")
 metadata/_edit_lock_ = true
 
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)
+
 [node name="MenuUI" type="NinePatchRect" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(48, 64)
