@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://btb7dyil8vdlj"]
 
 [ext_resource type="Script" path="res://title_screen.gd" id="1_nuk1h"]
-[ext_resource type="Texture2D" uid="uid://qyieil7nkodp" path="res://SeasonsGoneLogoTransparent.png" id="2_llwey"]
+[ext_resource type="Texture2D" path="res://SeasonsGoneLogoTransparent.png" id="2_llwey"]
 [ext_resource type="TileSet" uid="uid://cwsblrq7g17wg" path="res://world/world_tilemap/world_map_tileset.tres" id="3_xofvf"]
 
 [sub_resource type="Animation" id="Animation_kc2k1"]
