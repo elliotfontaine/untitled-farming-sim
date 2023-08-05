@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bskxqt6g35d5v"]
+[gd_scene load_steps=10 format=3 uid="uid://bskxqt6g35d5v"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3sxlu"]
 [ext_resource type="PackedScene" uid="uid://bvwjy580u0rc4" path="res://player/clicking_player_character.tscn" id="2_hvf84"]
 [ext_resource type="PackedScene" uid="uid://de256w64hn46q" path="res://world/world_tilemap/world_tilemap.tscn" id="3_j1lef"]
 [ext_resource type="PackedScene" uid="uid://ffyqsla8shd6" path="res://ui/pausemenu_ui.tscn" id="4_2qfxs"]
 [ext_resource type="PackedScene" uid="uid://bil1eavx6mtih" path="res://ui/inventories/hot_bar.tscn" id="4_g4qgx"]
+[ext_resource type="Texture2D" uid="uid://dq2f2qx4c7p80" path="res://assets/images/hud/menus_button_unpressed.png" id="6_sfp74"]
+[ext_resource type="Texture2D" uid="uid://ddvomf6ph8hm2" path="res://assets/images/hud/menus_button_pressed.png" id="7_imlvr"]
+[ext_resource type="FontFile" uid="uid://bxyb23qbuo64n" path="res://assets/Fonts/Kenney Pixel.ttf" id="8_0nwin"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bwkbj"]
+line_spacing = 0.0
+font = ExtResource("8_0nwin")
+font_color = Color(0.878431, 0.878431, 0.878431, 1)
+shadow_color = Color(0, 0, 0, 0.639216)
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -24,3 +33,33 @@ position = Vector2(67, 116)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HotBar" parent="HUD" instance=ExtResource("4_g4qgx")]
+
+[node name="NextMonthButton" type="TextureButton" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_sfp74")
+texture_pressed = ExtResource("7_imlvr")
+stretch_mode = 0
+
+[node name="NextMonthLabel" type="Label" parent="HUD/NextMonthButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 6.0
+offset_right = -18.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NEXT MONTH"
+label_settings = SubResource("LabelSettings_bwkbj")
+horizontal_alignment = 1

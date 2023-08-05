@@ -45,6 +45,27 @@ func _ready():
 	## Should load data here if loading a save file
 	pass # Replace with function body.
 
+func time_skip() -> void:
+	# Results of this month
+	for coords in tilemap.soildata_instances:
+		var soildata: SoilData = tilemap.soildata_instances[coords]
+		# If the field cell has a crop
+		if tilemap.crop_instances.has(coords):
+			var crop: Crop = tilemap.crop_instances[coords]
+			crop.grow(_compute_growth(crop, soildata))
+			_consume_nitrogen(crop, soildata)
+			#_propagate_disease()
+			if not crop.sick:
+				crop.sick = _gamble_sick(soildata)
+		# If the field is bare, during fallow for exemple
+		else:
+			_generate_nitrogen(soildata)
+	# Money and game over handling
+	pass
+	# Changing to new month
+	_advance_calendar()
+	temperature = _random_temperature(month)
+
 func _advance_calendar() -> void:
 	# Seasons
 	if month in [MONTHS.MAY, MONTHS.AUGUST, MONTHS.NOVEMBER]:
@@ -60,7 +81,8 @@ func _advance_calendar() -> void:
 		@warning_ignore("int_as_enum_without_cast")
 		month += 1
 	
-	
+func _money_costs() -> void:
+	pass
 	
 ## Compute the growth for the plant given crop and soil data
 func _compute_growth(crop: Crop, soildata: SoilData) -> int:
@@ -90,16 +112,15 @@ func _consume_nitrogen(crop: Crop, soildata: SoilData) -> void:
 	soildata.total_nitrogen -= crop.nitrogen_consumption
 
 # Small quantity of nitrogen gets in the soil if bare field
-func _nitrogen_creation(soildata: SoilData) -> void:
+func _generate_nitrogen(soildata: SoilData) -> void:
 	pass
 
 func _random_temperature(month: MONTHS) -> int:
 	var med_temp: int = MED_TEMP[month]
-	rng.randi_range(-2, 2)
-	return 0
+	return med_temp + rng.randi_range(-2, 2)
 
-func _gamble_sick(cell: Vector2i) -> void:
-	pass
+func _gamble_sick(soildata: SoilData) -> bool:
+	return false
 
 func _propagate_disease(cell: Vector2i) -> void:
 	pass
