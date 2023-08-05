@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bskxqt6g35d5v"]
+[gd_scene load_steps=6 format=3 uid="uid://bskxqt6g35d5v"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3sxlu"]
 [ext_resource type="PackedScene" uid="uid://bvwjy580u0rc4" path="res://player/clicking_player_character.tscn" id="2_hvf84"]
 [ext_resource type="PackedScene" uid="uid://de256w64hn46q" path="res://world/world_tilemap/world_tilemap.tscn" id="3_j1lef"]
+[ext_resource type="PackedScene" uid="uid://ffyqsla8shd6" path="res://ui/pausemenu_ui.tscn" id="4_2qfxs"]
 [ext_resource type="PackedScene" uid="uid://bil1eavx6mtih" path="res://ui/inventories/hot_bar.tscn" id="4_g4qgx"]
 
 [node name="World" type="Node2D"]
@@ -16,6 +17,10 @@ tile_selector_source_id = 5
 z_index = 1
 y_sort_enabled = true
 position = Vector2(67, 116)
+
+[node name="GeneralUI" type="CanvasLayer" parent="."]
+
+[node name="MenuUi" parent="GeneralUI" instance=ExtResource("4_2qfxs")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

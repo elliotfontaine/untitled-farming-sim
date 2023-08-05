@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://n00vhrhm0sek" path="res://sounds/_Soundstorm 6_Whips-LeatherRidingCrop-10_B05-09518_preview.mp3" id="3_bmw52"]
 
 [node name="Sound" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("2_vx1ct")
 autoplay = true
 script = ExtResource("1_2fd36")

@@ -5,9 +5,11 @@ extends Node
 func _ready() -> void:
 	current_level.level_changed.connect(switch_scene)
 ## Takes filepath to a Scene and replace the current level by a new one.
-func switch_scene(level: String) -> void:
-	var next_level = load(level)
-	add_child(next_level.instantiate())
+
+func switch_scene(level: PackedScene) -> void:
+	var next_level = level.instantiate()
 	current_level.queue_free()
 	current_level = next_level
+	add_child(current_level)
+	current_level.level_changed.connect(switch_scene)
 	
