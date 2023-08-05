@@ -1,25 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://uu11t1245efj"]
+[gd_scene load_steps=7 format=3 uid="uid://uu11t1245efj"]
 
 [ext_resource type="Script" path="res://Cow.gd" id="1_pmci8"]
-[ext_resource type="Texture2D" uid="uid://dx1i26mfs7pmd" path="res://animals/cow-right.png" id="2_21y1b"]
+[ext_resource type="Texture2D" uid="uid://b6cv1xhk2sqcr" path="res://animals/cow.png" id="2_nt7hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51p27"]
-
-[sub_resource type="Animation" id="Animation_how0t"]
-resource_name = "cow_left"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [2, 1, 0]
-}
 
 [sub_resource type="Animation" id="Animation_g02ib"]
 length = 0.001
@@ -36,9 +20,9 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_owp7n"]
-resource_name = "cow_right"
-length = 0.5
+[sub_resource type="Animation" id="Animation_how0t"]
+resource_name = "cow_left"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -46,17 +30,16 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4mp2h"]
 _data = {
 "RESET": SubResource("Animation_g02ib"),
-"cow_left": SubResource("Animation_how0t"),
-"cow_right": SubResource("Animation_owp7n")
+"cow": SubResource("Animation_how0t")
 }
 
 [node name="Cow" type="CharacterBody2D"]
@@ -64,7 +47,7 @@ script = ExtResource("1_pmci8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_21y1b")
+texture = ExtResource("2_nt7hg")
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
