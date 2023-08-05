@@ -1,5 +1,7 @@
 extends Node2D
 
+signal level_changed(level_name)
+
 # Public Variables
 const SEASONS := Global.SEASONS
 const MONTHS := Global.MONTHS

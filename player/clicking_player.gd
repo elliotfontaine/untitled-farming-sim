@@ -49,7 +49,7 @@ func _ready() -> void:
 	print("The ClickingPlayer has no character attached.
 		Proceding working with infinite range.")
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	pass
 
 func _unhandled_input(event) -> void:
