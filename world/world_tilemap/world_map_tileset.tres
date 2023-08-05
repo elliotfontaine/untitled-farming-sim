@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=36 format=3 uid="uid://cwsblrq7g17wg"]
+[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://cwsblrq7g17wg"]
 
 [ext_resource type="Texture2D" uid="uid://gnp235dgwhij" path="res://world/world_tilemap/assets/tileset_tdfarmtiles_grass.png" id="1_iipng"]
 [ext_resource type="Texture2D" uid="uid://edqqfbegr1ou" path="res://world/world_tilemap/assets/tileset_tdfarmtiles_rockypath.png" id="2_3oora"]
@@ -25,6 +25,9 @@ tile_data = PackedInt32Array(0, 23, 0, 65536, 22, 0, 1, 22, 0, 131073, 22, 0, 2,
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uyn1l"]
 tile_data = PackedInt32Array(0, 22, 0, 131072, 22, 0, 1, 23, 0, 65537, 22, 0, 2, 22, 0, 131074, 22, 0, 3, 23, 0, 65539, 22, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_by1bu"]
+tile_data = PackedInt32Array(0, 23, 0, 1, 65559, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2im76"]
 resource_name = "grass"
@@ -1877,3 +1880,4 @@ sources/23 = SubResource("TileSetAtlasSource_w8nad")
 pattern_0 = SubResource("TileMapPattern_8c0rp")
 pattern_1 = SubResource("TileMapPattern_du2tu")
 pattern_2 = SubResource("TileMapPattern_uyn1l")
+pattern_3 = SubResource("TileMapPattern_by1bu")
