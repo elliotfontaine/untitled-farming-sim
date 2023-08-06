@@ -178,3 +178,14 @@ metadata/_edit_group_ = true
 [node name="Wheat" parent="NinePatchRect/GridContainer/WheatSlot" instance=ExtResource("22_7qaan")]
 position = Vector2(16, 16)
 state = 1
+
+[connection signal="pressed" from="NinePatchRect/GridContainer/BeetSlot" to="." method="_on_beet_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/PotatoSlot" to="." method="_on_potato_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/TomatoSlot" to="." method="_on_tomato_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/FrenchBeansSlot" to="." method="_on_french_beans_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/PumpkinSlot" to="." method="_on_pumpkin_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/CarrotSlot" to="." method="_on_carrot_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/OnionSlot" to="." method="_on_onion_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/CauliflowerSlot" to="." method="_on_cauliflower_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/TurnipSlot" to="." method="_on_turnip_slot_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/WheatSlot" to="." method="_on_wheat_slot_pressed"]
