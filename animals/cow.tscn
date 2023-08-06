@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://uu11t1245efj"]
+[gd_scene load_steps=8 format=3 uid="uid://uu11t1245efj"]
 
 [ext_resource type="Script" path="res://Cow.gd" id="1_pmci8"]
-[ext_resource type="Texture2D" uid="uid://b6cv1xhk2sqcr" path="res://animals/cow.png" id="2_nt7hg"]
+[ext_resource type="Texture2D" uid="uid://cbmkb7rbbs488" path="res://animals/Free Cow Sprites-export.png" id="2_u8xg7"]
+[ext_resource type="AudioStream" uid="uid://c5ewvldmxefe3" path="res://sounds/Agraria_-_cow_goes_moo.wav" id="3_lsk8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51p27"]
 
@@ -22,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_how0t"]
 resource_name = "cow_left"
-length = 0.3
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,10 +31,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 0]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4mp2h"]
@@ -47,8 +48,9 @@ script = ExtResource("1_pmci8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_nt7hg")
+texture = ExtResource("2_u8xg7")
 hframes = 3
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_51p27")
@@ -57,3 +59,6 @@ shape = SubResource("RectangleShape2D_51p27")
 libraries = {
 "": SubResource("AnimationLibrary_4mp2h")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lsk8v")
