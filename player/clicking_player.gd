@@ -90,8 +90,11 @@ func _handle_key_press(event: InputEventKey) -> void:
 		# Check for numerical keys
 		for i in range(10):
 			if event.is_action_pressed(str("slot_", i)):
-				selected_crop = crop_strnames[i]
-				hotbar.select_slot(i)
+				selected_crop = crop_strnames[i-1]
+				hotbar.select_slot(i-1)
+			elif event.is_action_pressed(str("slot_10")): #special hardcoded exception
+				selected_crop = crop_strnames[9]
+				hotbar.select_slot(9)
 
 ## Docstring
 func is_mouse_in_range() -> bool:
