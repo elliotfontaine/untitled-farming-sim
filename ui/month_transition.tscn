@@ -1,0 +1,261 @@
+[gd_scene load_steps=13 format=3 uid="uid://blmu03ivytor8"]
+
+[ext_resource type="Script" path="res://ui/month_transition.gd" id="1_160ff"]
+[ext_resource type="Texture2D" uid="uid://d25i1tcwch7hk" path="res://ui/assets/Background.png" id="2_1sdqy"]
+[ext_resource type="Texture2D" uid="uid://dq2f2qx4c7p80" path="res://assets/images/hud/menus_button_unpressed.png" id="3_rd10h"]
+[ext_resource type="Texture2D" uid="uid://ddvomf6ph8hm2" path="res://assets/images/hud/menus_button_pressed.png" id="4_hyifd"]
+[ext_resource type="FontFile" uid="uid://bxyb23qbuo64n" path="res://assets/Fonts/Kenney Pixel.ttf" id="5_gwqeb"]
+[ext_resource type="Texture2D" uid="uid://scftvouvc6gk" path="res://ui/assets/item_slot.png" id="6_4i74e"]
+[ext_resource type="Texture2D" uid="uid://70o6x2r3xl7c" path="res://ui/assets/clicked_slot.png" id="7_1jxtb"]
+
+[sub_resource type="Animation" id="Animation_kd5vt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_aqnom"]
+resource_name = "fade_in_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kapt1"]
+_data = {
+"RESET": SubResource("Animation_kd5vt"),
+"fade_in_out": SubResource("Animation_aqnom")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_jfkgi"]
+line_spacing = 0.0
+font = ExtResource("5_gwqeb")
+font_color = Color(0.878431, 0.878431, 0.878431, 1)
+shadow_color = Color(0, 0, 0, 0.639216)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3o25k"]
+line_spacing = 0.0
+font = ExtResource("5_gwqeb")
+font_size = 32
+font_color = Color(0.878431, 0.878431, 0.878431, 1)
+shadow_color = Color(0, 0, 0, 0.639216)
+
+[node name="MonthTransition" type="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_160ff")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.121569, 0.137255, 0.121569, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kapt1")
+}
+
+[node name="StartSeasonButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 144.0
+offset_top = 296.0
+offset_right = -80.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_rd10h")
+texture_pressed = ExtResource("4_hyifd")
+stretch_mode = 5
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="StartSeasonButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 88.0
+offset_bottom = 20.0
+text = "START MONTH"
+label_settings = SubResource("LabelSettings_jfkgi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 55.0
+offset_right = -64.0
+offset_bottom = -73.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1sdqy")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Season" type="NinePatchRect" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.258
+offset_left = 181.0
+offset_top = 15.0
+offset_right = -158.0
+offset_bottom = -10.856
+texture = ExtResource("6_4i74e")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="SeasonTitle" type="Label" parent="Panel/Season"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.029
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0139999
+offset_right = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SEASON"
+label_settings = SubResource("LabelSettings_3o25k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel/Season"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 34.0
+offset_right = 122.0
+offset_bottom = 50.0
+text = "season text \"Spring\""
+label_settings = SubResource("LabelSettings_jfkgi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cashflow" type="NinePatchRect" parent="Panel/Season"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.258
+offset_top = 55.0
+offset_bottom = 80.228
+texture = ExtResource("6_4i74e")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Panel/Season/Cashflow"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 30.0
+offset_right = 157.0
+offset_bottom = 101.0
+texture = ExtResource("7_1jxtb")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="CashflowTitle" type="Label" parent="Panel/Season/Cashflow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.029
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0139999
+offset_right = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CASHFLOW"
+label_settings = SubResource("LabelSettings_3o25k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Food" type="Label" parent="Panel/Season/Cashflow"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 39.0
+offset_right = 111.0
+offset_bottom = 55.0
+text = "Food:"
+label_settings = SubResource("LabelSettings_jfkgi")
+vertical_alignment = 1
+
+[node name="Taxes" type="Label" parent="Panel/Season/Cashflow"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 55.0
+offset_right = 111.0
+offset_bottom = 71.0
+text = "Taxes:"
+label_settings = SubResource("LabelSettings_jfkgi")
+vertical_alignment = 1
+
+[node name="Random" type="Label" parent="Panel/Season/Cashflow"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 71.0
+offset_right = 111.0
+offset_bottom = 87.0
+text = "..."
+label_settings = SubResource("LabelSettings_jfkgi")
+vertical_alignment = 1

@@ -39,6 +39,8 @@ var rng = RandomNumberGenerator.new()
 ## DocString
 @onready var tilemap: TileMap = $WorldTileMap
 @onready var player: Node2D = $ClickingPlayerCharacter
+@onready var transition_screen: Control = $GeneralUI/MonthTransition
+@onready var hud: CanvasLayer = $HUD
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,6 +48,11 @@ func _ready():
 	pass # Replace with function body.
 
 func time_skip() -> void:
+	
+	hud.hide()
+	transition_screen.animation_player.play("fade_in_out")
+	#get_tree().paused = true
+	
 	# Results of this month
 	for coords in tilemap.soildata_instances:
 		var soildata: SoilData = tilemap.soildata_instances[coords]
