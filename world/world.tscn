@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bskxqt6g35d5v"]
+[gd_scene load_steps=11 format=3 uid="uid://bskxqt6g35d5v"]
 
 [ext_resource type="Script" path="res://world/world.gd" id="1_3sxlu"]
 [ext_resource type="PackedScene" uid="uid://bvwjy580u0rc4" path="res://player/clicking_player_character.tscn" id="2_hvf84"]
 [ext_resource type="PackedScene" uid="uid://de256w64hn46q" path="res://world/world_tilemap/world_tilemap.tscn" id="3_j1lef"]
 [ext_resource type="PackedScene" uid="uid://ffyqsla8shd6" path="res://ui/pausemenu_ui.tscn" id="4_2qfxs"]
 [ext_resource type="PackedScene" uid="uid://bil1eavx6mtih" path="res://ui/inventories/hot_bar.tscn" id="4_g4qgx"]
+[ext_resource type="Texture2D" uid="uid://dq2f2qx4c7p80" path="res://assets/images/hud/menus_button_unpressed.png" id="6_86tdr"]
 [ext_resource type="PackedScene" uid="uid://uu11t1245efj" path="res://animals/cow.tscn" id="6_wsgn2"]
+[ext_resource type="Texture2D" uid="uid://ddvomf6ph8hm2" path="res://assets/images/hud/menus_button_pressed.png" id="7_fn2xq"]
+[ext_resource type="FontFile" uid="uid://bxyb23qbuo64n" path="res://assets/Fonts/Kenney Pixel.ttf" id="8_o8odv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qseru"]
+line_spacing = 0.0
+font = ExtResource("8_o8odv")
+font_color = Color(0.878431, 0.878431, 0.878431, 1)
+shadow_color = Color(0, 0, 0, 0.639216)
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -33,6 +42,32 @@ position = Vector2(473, 389)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HotBar" parent="HUD" instance=ExtResource("4_g4qgx")]
+
+[node name="BackButton" type="TextureButton" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 208.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_86tdr")
+texture_pressed = ExtResource("7_fn2xq")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HUD/BackButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 88.0
+offset_bottom = 20.0
+text = "NEXT MONTH"
+label_settings = SubResource("LabelSettings_qseru")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Cow" parent="." instance=ExtResource("6_wsgn2")]
 position = Vector2(765, 279)
