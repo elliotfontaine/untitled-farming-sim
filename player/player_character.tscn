@@ -21,10 +21,6 @@ sprite_frames = ExtResource("2_nllpk")
 animation = &"down_idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-limit_top = 0
-limit_right = 960
-limit_bottom = 800
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)

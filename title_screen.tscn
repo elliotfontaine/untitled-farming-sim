@@ -202,7 +202,7 @@ layout_mode = 2
 text = " Music Production - Wojtek Filipowicz
  Programming - Elliot Fontaine, Lucian Vale, Culiynl
  Game Design -  Elliot Fontaine
- History & Context - Sam Couqueberg
+ Historian - Sam Couqueberg
  Additional Art - Max Webster"
 
 [node name="Assets" type="TabBar" parent="CanvasLayer/Control/CreditsContainer/TabContainer"]
