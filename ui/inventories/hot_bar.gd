@@ -5,11 +5,14 @@ var slots
 
 var normal_slot = preload("res://ui/assets/item_slot.png")
 var clicked_slot = preload("res://ui/assets/clicked_slot.png")
+@onready var worldMap = get_parent().get_parent()
+var click_player_character
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	slots = grid_container.get_children()
-	print(slots)
+	click_player_character = worldMap.get_node("ClickingPlayerCharacter")
+#	print(slots)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,6 +25,7 @@ func reset_slots():
 func select_slot(x : int):
 	reset_slots()
 	slots[x].set_texture_normal(clicked_slot)
+	click_player_character.selected_crop = click_player_character.crop_strnames[x]
 
 func _on_beet_slot_pressed():
 	select_slot(0)

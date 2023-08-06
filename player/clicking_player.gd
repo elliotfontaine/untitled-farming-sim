@@ -3,13 +3,13 @@ extends Node2D
 const MAX_PLAYER_PLANT_DIST : float = 30
 const crop_strnames: Array[StringName] = [
 	&"beet",
-	&"carrot",
-	&"cauliflower",
-	&"french_beans",
-	&"onion",
 	&"potato",
-	&"pumpkin",
 	&"tomato",
+	&"french_beans",
+	&"pumpkin",
+	&"carrot",
+	&"onion",
+	&"cauliflower",
 	&"turnip",
 	&"wheat",
 ]
@@ -25,13 +25,13 @@ var in_range : bool = true
 var player_data: Dictionary = {
 	# Crop stocks
 	"beet_stock": 0,
-	"carrot_stock": 0,
-	"cauliflower_stock": 0,
-	"french_beans_stock": 0,
-	"onion_stock": 0,
 	"potato_stock": 0,
-	"pumpkin_stock": 0,
 	"tomato_stock": 0,
+	"french_beans_stock": 0,
+	"pumpkin_stock": 0,
+	"carrot_stock": 0,
+	"onion_stock": 0,
+	"cauliflower_stock": 0,
 	"turnip_stock": 0,
 	"wheat_stock": 0,
 	# Money
@@ -43,11 +43,14 @@ var player_data: Dictionary = {
 
 # TileMap reference
 @onready var tile_map: TileMap = $"../WorldTileMap"
+@onready var worldMap = get_parent()
+var hotbar
 
 func _ready() -> void:
 	has_character = optional_char is CharacterBody2D
 	print("The ClickingPlayer has no character attached.
 		Proceding working with infinite range.")
+	hotbar = worldMap.get_node("HUD/HotBar")
 
 func _process(_delta) -> void:
 	pass
@@ -88,6 +91,7 @@ func _handle_key_press(event: InputEventKey) -> void:
 		for i in range(10):
 			if event.is_action_pressed(str("slot_", i)):
 				selected_crop = crop_strnames[i]
+				hotbar.select_slot(i)
 
 ## Docstring
 func is_mouse_in_range() -> bool:
