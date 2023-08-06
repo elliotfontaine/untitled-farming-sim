@@ -178,7 +178,7 @@ label_settings = SubResource("LabelSettings_3o25k")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Panel/Season"]
+[node name="SeasonValue" type="Label" parent="Panel/Season"]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 34.0
@@ -259,3 +259,5 @@ offset_bottom = 87.0
 text = "..."
 label_settings = SubResource("LabelSettings_jfkgi")
 vertical_alignment = 1
+
+[connection signal="button_up" from="StartSeasonButton" to="." method="_on_start_season_button_up"]

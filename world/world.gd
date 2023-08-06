@@ -52,6 +52,8 @@ func time_skip() -> void:
 	hud.hide()
 	transition_screen.animation_player.play("fade_in_out")
 	#get_tree().paused = true
+	await transition_screen.exited
+	hud.show()
 	
 	# Results of this month
 	for coords in tilemap.soildata_instances:
@@ -72,6 +74,7 @@ func time_skip() -> void:
 	# Changing to new month
 	_advance_calendar()
 	temperature = _random_temperature(month)
+
 
 func _advance_calendar() -> void:
 	# Seasons
