@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brpuux7wiols5"
-path="res://.godot/imported/onionbox.png-6b67767f4a41f7bf5f6f5ddbea6d1f1f.ctex"
+uid="uid://b6cv1xhk2sqcr"
+path="res://.godot/imported/cow.png-b9a084adb269deef4f2ac3d29b839689.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/onionbox.png"
-dest_files=["res://.godot/imported/onionbox.png-6b67767f4a41f7bf5f6f5ddbea6d1f1f.ctex"]
+source_file="res://animals/cow.png"
+dest_files=["res://.godot/imported/cow.png-b9a084adb269deef4f2ac3d29b839689.ctex"]
 
 [params]
 

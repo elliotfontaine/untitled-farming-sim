@@ -9,7 +9,7 @@ extends Node
 
 signal level_changed(level_name)
 
-@export_file("*.tscn") var world_level: String = "res://world/world.tscn"
+@export var world_level: PackedScene = load("res://world/world.tscn")
 
 #Sets up panning background and correct buttons displayed
 func _ready():
@@ -66,5 +66,5 @@ func _on_credits_back_pressed():
 #--------------------------------
 
 #Will close and exit the game when the exit button is pressed
-func _on_exit_pressed():
+func _on_quit_pressed():
 	get_tree().quit()

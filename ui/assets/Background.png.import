@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmvico2c11dx6"
-path="res://.godot/imported/carrotbox.png-3360488985c14640c41fdcca5793cef0.ctex"
+uid="uid://d25i1tcwch7hk"
+path="res://.godot/imported/Background.png-eb78aa8c62459a776306a3fe9ae7401e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/carrotbox.png"
-dest_files=["res://.godot/imported/carrotbox.png-3360488985c14640c41fdcca5793cef0.ctex"]
+source_file="res://ui/assets/Background.png"
+dest_files=["res://.godot/imported/Background.png-eb78aa8c62459a776306a3fe9ae7401e.ctex"]
 
 [params]
 

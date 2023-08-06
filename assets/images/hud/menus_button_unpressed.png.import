@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy3fciyq0214"
-path="res://.godot/imported/tomatobox.png-f1ac6bd0d492d7b2a8906304010e3e0e.ctex"
+uid="uid://dq2f2qx4c7p80"
+path="res://.godot/imported/menus_button_unpressed.png-95eed780c0e88b74833b8afc1f9dc163.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/tomatobox.png"
-dest_files=["res://.godot/imported/tomatobox.png-f1ac6bd0d492d7b2a8906304010e3e0e.ctex"]
+source_file="res://assets/images/hud/menus_button_unpressed.png"
+dest_files=["res://.godot/imported/menus_button_unpressed.png-95eed780c0e88b74833b8afc1f9dc163.ctex"]
 
 [params]
 

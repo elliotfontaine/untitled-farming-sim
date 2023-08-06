@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cglp1br8c7oav"
-path="res://.godot/imported/greenbeanbox.png-44e63930068138990db17f1ae3bcd6fb.ctex"
+uid="uid://kq6nh4s2hwcw"
+path="res://.godot/imported/menus_button.png-e3bfaa468fa5fc99d9c9cd951289e686.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/greenbeanbox.png"
-dest_files=["res://.godot/imported/greenbeanbox.png-44e63930068138990db17f1ae3bcd6fb.ctex"]
+source_file="res://assets/images/hud/menus_button.png"
+dest_files=["res://.godot/imported/menus_button.png-e3bfaa468fa5fc99d9c9cd951289e686.ctex"]
 
 [params]
 

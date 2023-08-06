@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btnfwuka3o2vh"
-path="res://.godot/imported/beetbox.png-ad93236d8a8b6490bbd9c6bcfd4767a3.ctex"
+uid="uid://djptv46amcynj"
+path="res://.godot/imported/x BUTTON off.png-e25c7db1361ee0fe679cdee4e866ba9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/beetbox.png"
-dest_files=["res://.godot/imported/beetbox.png-ad93236d8a8b6490bbd9c6bcfd4767a3.ctex"]
+source_file="res://assets/images/hud/x BUTTON off.png"
+dest_files=["res://.godot/imported/x BUTTON off.png-e25c7db1361ee0fe679cdee4e866ba9d.ctex"]
 
 [params]
 

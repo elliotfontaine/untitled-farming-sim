@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://d030vm6kult1a"]
+
+[ext_resource type="Texture2D" uid="uid://dq2f2qx4c7p80" path="res://assets/images/hud/menus_button_unpressed.png" id="1_r40vd"]
+[ext_resource type="FontFile" uid="uid://bxyb23qbuo64n" path="res://assets/Fonts/Kenney Pixel.ttf" id="2_odayu"]
+[ext_resource type="Texture2D" uid="uid://ddvomf6ph8hm2" path="res://assets/images/hud/menus_button_pressed.png" id="2_rjpmm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bvc23"]
+font = ExtResource("2_odayu")
+font_color = Color(1, 0.85098, 0.85098, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.0784314)
+
+[node name="Panel" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(48, 16)
+offset_right = 48.0
+offset_bottom = 16.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 15.0
+texture_normal = ExtResource("1_r40vd")
+texture_pressed = ExtResource("2_rjpmm")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 49.0
+offset_bottom = 15.0
+label_settings = SubResource("LabelSettings_bvc23")
+horizontal_alignment = 1

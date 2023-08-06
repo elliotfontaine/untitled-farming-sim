@@ -2,16 +2,16 @@ extends Node2D
 
 const MAX_PLAYER_PLANT_DIST : float = 30
 const crop_strnames: Array[StringName] = [
-	&"wheat",
-	&"potato",
-	&"tomato",
-	&"turnip",
+	&"beet",
 	&"carrot",
 	&"cauliflower",
 	&"french_beans",
 	&"onion",
+	&"potato",
 	&"pumpkin",
-	&"beet",
+	&"tomato",
+	&"turnip",
+	&"wheat",
 ]
 
 # get the player 
@@ -20,6 +20,26 @@ const crop_strnames: Array[StringName] = [
 var selected_crop: StringName = &"wheat"
 var has_character: bool
 var in_range : bool = true
+## Temporary solution for player data: a dictionary that keeps everything.
+## Should be copied by the save system if implemented.
+var player_data: Dictionary = {
+	# Crop stocks
+	"beet_stock": 0,
+	"carrot_stock": 0,
+	"cauliflower_stock": 0,
+	"french_beans_stock": 0,
+	"onion_stock": 0,
+	"potato_stock": 0,
+	"pumpkin_stock": 0,
+	"tomato_stock": 0,
+	"turnip_stock": 0,
+	"wheat_stock": 0,
+	# Money
+	"money": 0,
+	# Cows (producers) and manure (product)
+	"cows": 0,
+	"manure_stock": 0
+}
 
 # TileMap reference
 @onready var tile_map: TileMap = $"../WorldTileMap"
@@ -29,7 +49,7 @@ func _ready() -> void:
 	print("The ClickingPlayer has no character attached.
 		Proceding working with infinite range.")
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	pass
 
 func _unhandled_input(event) -> void:
@@ -56,7 +76,7 @@ func _handle_mouse_click(event: InputEventMouse) -> void:
 		SoundHandler.play_sound(0)
 	elif event.is_action_pressed("remove_crop"):
 		tile_map.remove_crop(tile_mouse_pos)
-		SoundHandler.play_sound(0)
+		SoundHandler.play_sound(1)
 
 ## Docstring
 func _handle_key_press(event: InputEventKey) -> void:

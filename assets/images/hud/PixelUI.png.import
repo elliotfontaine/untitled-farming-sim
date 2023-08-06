@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f7uumxji8r2v"
-path="res://.godot/imported/turnipbox.png-13cc03ff9e7f8eb6aeff6dbda8070427.ctex"
+uid="uid://bx0taqiyw828d"
+path="res://.godot/imported/PixelUI.png-0ca6d6126f0387e8cc9986baea6d243b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/turnipbox.png"
-dest_files=["res://.godot/imported/turnipbox.png-13cc03ff9e7f8eb6aeff6dbda8070427.ctex"]
+source_file="res://assets/images/hud/PixelUI.png"
+dest_files=["res://.godot/imported/PixelUI.png-0ca6d6126f0387e8cc9986baea6d243b.ctex"]
 
 [params]
 

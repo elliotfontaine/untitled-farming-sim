@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn7xh2m13a3al"
-path="res://.godot/imported/potatobox.png-ebfc0d1108fe0f1672a80fc5a0512b6a.ctex"
+uid="uid://ddvomf6ph8hm2"
+path="res://.godot/imported/menus_button_pressed.png-2eea65c035527d82663c33eddfdd0a31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/potatobox.png"
-dest_files=["res://.godot/imported/potatobox.png-ebfc0d1108fe0f1672a80fc5a0512b6a.ctex"]
+source_file="res://assets/images/hud/menus_button_pressed.png"
+dest_files=["res://.godot/imported/menus_button_pressed.png-2eea65c035527d82663c33eddfdd0a31.ctex"]
 
 [params]
 

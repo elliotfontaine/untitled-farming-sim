@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c78l1fc2erku4"]
+[gd_scene load_steps=8 format=3 uid="uid://c78l1fc2erku4"]
 
 [ext_resource type="Script" path="res://sounds/Sound.gd" id="1_2fd36"]
 [ext_resource type="AudioStream" uid="uid://c7vtaqre0r6qp" path="res://sounds/Untitled_Farming_Sim_-_overture.mp3" id="2_vx1ct"]
-[ext_resource type="AudioStream" uid="uid://n00vhrhm0sek" path="res://sounds/_Soundstorm 6_Whips-LeatherRidingCrop-10_B05-09518_preview.mp3" id="3_bmw52"]
+[ext_resource type="AudioStream" uid="uid://coc3cmynp056j" path="res://sounds/Agraria_-_sowing.wav" id="3_ava5b"]
+[ext_resource type="AudioStream" uid="uid://duus4sdncv21g" path="res://sounds/Agraria_-_harvesting.wav" id="4_y4cdr"]
+[ext_resource type="AudioStream" uid="uid://8lvt8kole2ja" path="res://sounds/Agraria_-_left_foot.wav" id="5_wvsio"]
+[ext_resource type="AudioStream" uid="uid://c447fw6ts2hjd" path="res://sounds/Agraria_-_right_foot.wav" id="6_n5llh"]
+[ext_resource type="AudioStream" uid="uid://c5ewvldmxefe3" path="res://sounds/Agraria_-_cow_goes_moo.wav" id="7_rxqmr"]
 
 [node name="Sound" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("2_vx1ct")
 autoplay = true
 script = ExtResource("1_2fd36")
-_audioStreamPlayers = Array[AudioStream]([ExtResource("3_bmw52")])
+_audioStreamPlayers = Array[AudioStream]([ExtResource("3_ava5b"), ExtResource("4_y4cdr"), ExtResource("5_wvsio"), ExtResource("6_n5llh"), ExtResource("7_rxqmr")])

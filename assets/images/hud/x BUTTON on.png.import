@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy6tbh73slohi"
-path="res://.godot/imported/cauliflowerbox.png-e8c46b1fcf9a90210839e878aa7f8bbf.ctex"
+uid="uid://dxy77kvavm3m6"
+path="res://.godot/imported/x BUTTON on.png-fa93f0c04c5e8e792fff48b0e7560693.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/cauliflowerbox.png"
-dest_files=["res://.godot/imported/cauliflowerbox.png-e8c46b1fcf9a90210839e878aa7f8bbf.ctex"]
+source_file="res://assets/images/hud/x BUTTON on.png"
+dest_files=["res://.godot/imported/x BUTTON on.png-fa93f0c04c5e8e792fff48b0e7560693.ctex"]
 
 [params]
 

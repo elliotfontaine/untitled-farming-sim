@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfsy6eiih12um"
-path="res://.godot/imported/pumpkinbox.png-c1bacbc651045fbb52a170b0e0232998.ctex"
+uid="uid://cp000kvjanlg2"
+path="res://.godot/imported/tdfarmobj_tree_0_3.png-f404cb977266d9094cc38c27b2bf6abf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/pumpkinbox.png"
-dest_files=["res://.godot/imported/pumpkinbox.png-c1bacbc651045fbb52a170b0e0232998.ctex"]
+source_file="res://world/world_tilemap/assets/tdfarmobj_tree_0_3.png"
+dest_files=["res://.godot/imported/tdfarmobj_tree_0_3.png-f404cb977266d9094cc38c27b2bf6abf.ctex"]
 
 [params]
 
