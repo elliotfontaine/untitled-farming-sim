@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6cv1xhk2sqcr"
-path="res://.godot/imported/cow.png-b9a084adb269deef4f2ac3d29b839689.ctex"
+uid="uid://70o6x2r3xl7c"
+path="res://.godot/imported/clicked_slot.png-681e4e6f3b74a506902b695204ea0e10.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://animals/cow.png"
-dest_files=["res://.godot/imported/cow.png-b9a084adb269deef4f2ac3d29b839689.ctex"]
+source_file="res://ui/assets/clicked_slot.png"
+dest_files=["res://.godot/imported/clicked_slot.png-681e4e6f3b74a506902b695204ea0e10.ctex"]
 
 [params]
 
