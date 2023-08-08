@@ -13,7 +13,7 @@ var wanderPos : Vector2
 func _ready():
 	currentPos = position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = wanderPos * speed
 	if randi() % 60 == 0:
 		get_new_wander_dir()

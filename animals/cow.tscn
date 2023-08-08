@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://uu11t1245efj"]
 
-[ext_resource type="Script" path="res://Cow.gd" id="1_pmci8"]
+[ext_resource type="Script" path="res://animals/cow.gd" id="1_pex83"]
 [ext_resource type="Texture2D" uid="uid://cbmkb7rbbs488" path="res://animals/Free Cow Sprites-export.png" id="2_u8xg7"]
 [ext_resource type="AudioStream" uid="uid://c5ewvldmxefe3" path="res://sounds/Agraria_-_cow_goes_moo.wav" id="3_lsk8v"]
 
@@ -44,7 +44,7 @@ _data = {
 }
 
 [node name="Cow" type="CharacterBody2D"]
-script = ExtResource("1_pmci8")
+script = ExtResource("1_pex83")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

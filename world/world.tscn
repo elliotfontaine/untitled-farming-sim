@@ -74,11 +74,14 @@ vertical_alignment = 1
 
 [node name="Cow" parent="." instance=ExtResource("6_wsgn2")]
 position = Vector2(765, 279)
+speed = 3
 
 [node name="Cow2" parent="." instance=ExtResource("6_wsgn2")]
 position = Vector2(785, 223)
+speed = 3
 
 [node name="Cow3" parent="." instance=ExtResource("6_wsgn2")]
 position = Vector2(699, 242)
+speed = 3
 
 [connection signal="button_up" from="HUD/NextMonthButton" to="." method="time_skip"]
