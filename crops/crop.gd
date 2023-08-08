@@ -89,7 +89,7 @@ func _ready() -> void:
 	# SET INFO BUBBLES
 	_init_info_bubbles()
 
-func _process(delta):
+func _process(_delta):
 	if state == CROP_STATE.CROP:
 		var mouse_is_inside = _hbox_container.get_global_rect().has_point(
 			_hbox_container.get_global_mouse_position())

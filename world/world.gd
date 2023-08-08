@@ -128,8 +128,8 @@ func _consume_nitrogen(crop: Crop, soildata: SoilData) -> void:
 func _generate_nitrogen(soildata: SoilData) -> void:
 	pass
 
-func _random_temperature(month: MONTHS) -> int:
-	var med_temp: int = MED_TEMP[month]
+func _random_temperature(current_month: MONTHS) -> int:
+	var med_temp: int = MED_TEMP[current_month]
 	return med_temp + rng.randi_range(-2, 2)
 
 func _gamble_sick(soildata: SoilData) -> bool:

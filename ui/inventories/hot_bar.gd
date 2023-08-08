@@ -14,10 +14,6 @@ func _ready():
 	click_player_character = worldMap.get_node("ClickingPlayerCharacter")
 #	print(slots)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func reset_slots():
 	for x in range(slots.size()):
 		slots[x].set_texture_normal(normal_slot)
