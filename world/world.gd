@@ -74,7 +74,9 @@ func time_skip() -> void:
 	# Changing to new month
 	_advance_calendar()
 	temperature = _random_temperature(month)
-
+	
+	await transition_screen.exited
+	hud.show()
 
 func _advance_calendar() -> void:
 	# Seasons
@@ -115,6 +117,7 @@ func _compute_growth(crop: Crop, soildata: SoilData) -> int:
 		NO3_factor = 0.8
 	else:
 		NO3_factor = 0.3
+	# print(days, " ", delta_T, " ", sick_factor, " ", NO3_factor)
 	var growth: int = round(days*delta_T*sick_factor*NO3_factor)
 	return growth
 
