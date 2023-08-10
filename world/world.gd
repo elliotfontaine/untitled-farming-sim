@@ -20,6 +20,9 @@ const MED_TEMP: Dictionary = {
 	MONTHS.NOVEMBER: 7,
 	MONTHS.DECEMBER: 4
 }
+const QTY_REPLENISH_NITROGEN: int = 20
+const P_GEOM_DISTRIB: float = 0.15
+const P_PROPAGATION: float = 0.25
 ## Should be written/read by the save system if implemented.
 #var world_data: Dictionary = {
 #	"year": 1,
@@ -33,7 +36,6 @@ var season := SEASONS.SPRING
 var month := MONTHS.MARCH
 var temperature: int = MED_TEMP[MONTHS.MARCH]
 var weather := WEATHER.CLEAR
-var rng = RandomNumberGenerator.new()
 
 # Onready variables
 ## DocString
@@ -52,23 +54,25 @@ func time_skip() -> void:
 	hud.hide()
 	transition_screen.animation_player.play("fade_in_out")
 	#get_tree().paused = true
-	await transition_screen.exited
-	hud.show()
 	
-	# Results of this month
+	# Crops and soil changes for the month
 	for coords in tilemap.soildata_instances:
 		var soildata: SoilData = tilemap.soildata_instances[coords]
 		# If the field cell has a crop
 		if tilemap.crop_instances.has(coords):
 			var crop: Crop = tilemap.crop_instances[coords]
 			crop.grow(_compute_growth(crop, soildata))
-			_consume_nitrogen(crop, soildata)
+			soildata.total_nitrogen -= crop.nitrogen_consumption
+			soildata.current_crop = crop
 			#_propagate_disease()
 			if not crop.sick:
 				crop.sick = _gamble_sick(soildata)
+			else:
+				_propagate_disease(coords)
 		# If the field is bare, during fallow for exemple
 		else:
-			_generate_nitrogen(soildata)
+			soildata.total_nitrogen += QTY_REPLENISH_NITROGEN
+			soildata.current_crop = null
 	# Money and game over handling
 	pass
 	# Changing to new month
@@ -121,21 +125,26 @@ func _compute_growth(crop: Crop, soildata: SoilData) -> int:
 	var growth: int = round(days*delta_T*sick_factor*NO3_factor)
 	return growth
 
-func _consume_nitrogen(crop: Crop, soildata: SoilData) -> void:
-	soildata.total_nitrogen -= crop.nitrogen_consumption
-
-# Small quantity of nitrogen gets in the soil if bare field
-func _generate_nitrogen(soildata: SoilData) -> void:
-	pass
-
+## Pick a random temperature from a certain month, based on the medium
+## temperature for the month and a variation that follows an uniform law.
 func _random_temperature(current_month: MONTHS) -> int:
 	var med_temp: int = MED_TEMP[current_month]
-	return med_temp + rng.randi_range(-2, 2)
+	return med_temp + randi_range(-2, 2)
 
+## Uses the cumulative distribution function of a geometric distribution.
+## With k the `total_month_unchanged` & p probability of getting sick 1st month:
+## P(get sick) = 1 - (1-p)**k
 func _gamble_sick(soildata: SoilData) -> bool:
-	return false
+	var proba = 1 - pow((1-P_GEOM_DISTRIB), soildata.total_month_unchanged)
+	return randf() < proba
 
 func _propagate_disease(cell: Vector2i) -> void:
-	pass
+	var neighbors := tilemap.get_surrounding_cells(cell)
+	for neighbor_cell in neighbors:
+		if tilemap.crop_instances.has(neighbor_cell):
+			var neighbor_crop = tilemap.crop_instances(neighbor_cell)
+			neighbor_crop.sick = Global.bernoulli(P_PROPAGATION)
+		
+
 
 
