@@ -29,3 +29,12 @@ enum WEATHER {
 	FROST,
 	DROUGHT
 }
+
+static func bernoulli(p: float = 0.5) -> bool:
+	if p <= 0:
+		return false
+	elif p >= 1:
+		return true
+	else:
+		return randf() < p
+	
