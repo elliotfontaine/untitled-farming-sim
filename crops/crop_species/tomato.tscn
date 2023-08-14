@@ -10,3 +10,7 @@ crop_texture = ExtResource("2_y32xm")
 vegetable_texture = ExtResource("3_c0o1n")
 species = "Tomato"
 family = 7
+max_growth = 1400
+baseline_temperature = 12
+seed_cost = 200
+selling_price = 190

@@ -9,3 +9,7 @@ script = ExtResource("1_dsd05")
 crop_texture = ExtResource("2_72n4x")
 vegetable_texture = ExtResource("3_duyss")
 species = "FrenchBeans"
+max_growth = 1200
+baseline_temperature = 10
+seed_cost = 100
+selling_price = 70

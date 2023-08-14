@@ -10,3 +10,7 @@ crop_texture = ExtResource("2_jdsya")
 vegetable_texture = ExtResource("3_orpab")
 species = "Pumpkin"
 family = 6
+max_growth = 1000
+baseline_temperature = 16
+seed_cost = 300
+selling_price = 290

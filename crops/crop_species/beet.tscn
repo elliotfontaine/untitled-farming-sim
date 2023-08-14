@@ -10,3 +10,6 @@ crop_texture = ExtResource("2_uwd0m")
 vegetable_texture = ExtResource("3_ycjep")
 species = "Beet"
 family = 5
+max_growth = 1450
+selling_price = 50
+seed_cost = 60

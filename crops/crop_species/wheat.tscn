@@ -10,3 +10,7 @@ crop_texture = ExtResource("2_ixiyc")
 vegetable_texture = ExtResource("3_sad1a")
 species = "Wheat"
 family = 1
+max_growth = 1600
+baseline_temperature = 0
+seed_cost = 50
+selling_price = 40

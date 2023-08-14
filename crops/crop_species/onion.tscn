@@ -10,3 +10,7 @@ crop_texture = ExtResource("2_x5btt")
 vegetable_texture = ExtResource("3_oeou7")
 species = "Onion"
 family = 8
+max_growth = 1000
+baseline_temperature = 2
+seed_cost = 40
+selling_price = 25

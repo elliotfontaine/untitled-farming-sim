@@ -10,3 +10,7 @@ crop_texture = ExtResource("2_ahvqr")
 vegetable_texture = ExtResource("3_un3ij")
 species = "Cauliflower"
 family = 3
+max_growth = 1700
+baseline_temperature = 2
+seed_cost = 160
+selling_price = 120

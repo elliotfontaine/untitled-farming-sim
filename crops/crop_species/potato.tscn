@@ -10,3 +10,7 @@ crop_texture = ExtResource("2_545eq")
 vegetable_texture = ExtResource("3_f2osw")
 species = "Potato"
 family = 7
+max_growth = 1650
+baseline_temperature = 6
+seed_cost = 60
+selling_price = 55

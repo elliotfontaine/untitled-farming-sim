@@ -50,7 +50,7 @@ const mature_texture := preload("res://crops/assets/info_bubbles/mature_bubble.p
 ## Plant family. Influences disease outbreak.
 @export var family: FAMILIES
 ## Maximum growth in Growing degree-days
-@export_range(0, 200, 10, "or_greater") var max_growth: int = 200
+@export_range(0, 2000, 50, "or_greater") var max_growth: int = 1500
 ## DocString
 @export_range(-100, 100, 5, "or_lower", "or_greater") var nitrogen_consumption: int = 0
 ## Baseline temperature in °C for the plant to grow. Its growth speed is
@@ -59,8 +59,8 @@ const mature_texture := preload("res://crops/assets/info_bubbles/mature_bubble.p
 @export_range(0, 30, 1, "or_greater") var baseline_temperature: int = 5
 
 @export_group("Pricing")
-@export_range(0, 100, 5, "or_greater") var selling_price: int = 0
-@export_range(0, 100, 5, "or_greater") var seed_cost: int = 0
+@export_range(0, 300, 5, "or_greater") var seed_cost: int = 0
+@export_range(0, 300, 5, "or_greater") var selling_price: int = 0
 
 # @export_group("Debug")
 # Change the default spawn growth state. Should be 0

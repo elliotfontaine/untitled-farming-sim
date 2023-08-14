@@ -10,3 +10,7 @@ crop_texture = ExtResource("2_xytog")
 vegetable_texture = ExtResource("3_hniu1")
 species = "Carrot"
 family = 4
+max_growth = 1300
+baseline_temperature = 9
+selling_price = 25
+seed_cost = 30

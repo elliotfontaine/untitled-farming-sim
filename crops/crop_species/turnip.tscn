@@ -10,3 +10,6 @@ crop_texture = ExtResource("2_pmpw2")
 vegetable_texture = ExtResource("3_kogr5")
 species = "Turnip"
 family = 3
+baseline_temperature = 4
+seed_cost = 140
+selling_price = 100
