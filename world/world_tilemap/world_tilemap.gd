@@ -54,6 +54,7 @@ func add_crop(coords: Vector2i, crop_name: StringName) -> void:
 		var new_crop: Crop = CropsPreloader.get_resource(crop_name).instantiate()
 		new_crop.position = map_to_local(coords)
 		add_child(new_crop)
+		new_crop.owner = self # self is the TileMap
 		# Add the crop to the dictionary for presence lookup.
 		crop_instances[coords] = new_crop
 		#print_debug(crop_instances)
@@ -131,6 +132,7 @@ func _setup_soil_data() -> void:
 				var new_soildata: SoilData = _packed_soil.instantiate()
 				new_soildata.position = map_to_local(coords)
 				add_child(new_soildata)
+				new_soildata.owner = self # self is the TileMap
 				# Add the SoilData to the dictionary for quick lookup.
 				soildata_instances[coords] = new_soildata
 	# print_debug(soildata_instances)
