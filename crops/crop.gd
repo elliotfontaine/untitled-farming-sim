@@ -44,9 +44,9 @@ const mature_texture := preload("res://crops/assets/info_bubbles/mature_bubble.p
 ## Name of the crop. Used as an identifier.
 @export var species: String = "NA":
 	set(p_species):
-			if p_species != species:
-				species = p_species
-				update_configuration_warnings()
+		if p_species != species:
+			species = p_species
+			update_configuration_warnings()
 ## Plant family. Influences disease outbreak.
 @export var family: FAMILIES
 ## Maximum growth in Growing degree-days
@@ -69,9 +69,9 @@ const mature_texture := preload("res://crops/assets/info_bubbles/mature_bubble.p
 # Public variables
 var growth: int = 0 : set = _set_growth
 var sick: bool = false:
-	set(s): _sick_bubble.visible = s
+	set(s): _sick_bubble.visible = s; sick = s
 var deficient: bool = false:
-	set(def): _deficient_bubble.visible = def
+	set(def): _deficient_bubble.visible = def; deficient = def
 	
 # Private variables
 var _sprite2d: Sprite2D
@@ -118,7 +118,7 @@ func can_grow() -> bool:
 ## DocString
 func grow(amount : int) -> void:
 	if amount < 0:
-		push_warning("You can't send a negative growth to a Crop.")
+		push_warning("You can't send a negative growth to a Crop. " + self.to_string())
 		return
 	_set_growth(growth + amount)
 
