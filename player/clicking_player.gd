@@ -67,6 +67,7 @@ func _handle_mouse_click(event: InputEventMouse) -> void:
 	if has_character:
 		in_range = is_mouse_in_range()
 	if not in_range:
+		tile_map.set_tile_selector(tile_map.DEFAULT_SELECTOR_POS)
 		return
 	# get mouse position and convert it to tilemap coords
 	var mouse_pos = get_global_mouse_position()

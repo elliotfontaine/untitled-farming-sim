@@ -13,6 +13,8 @@ enum LAYERS {
 	tile_selector
 }
 
+const DEFAULT_SELECTOR_POS := Vector2i(-1000, -1000)
+
 @export var tile_selector_source_id: int = 5
 
 # Public variables
@@ -27,7 +29,7 @@ var soildata_instances: Dictionary
 # Private variables
 
 ## Cursor position
-var _selector_pos : Vector2i = Vector2i(-100, -100)
+var _selector_pos : Vector2i = DEFAULT_SELECTOR_POS
 ## Packed SoilData scene
 var _packed_soil: PackedScene = preload("res://world/world_tilemap/soil_data.tscn")
 
