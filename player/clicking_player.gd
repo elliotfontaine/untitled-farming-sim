@@ -1,6 +1,6 @@
 extends Node2D
 
-const MAX_PLAYER_PLANT_DIST : float = 30
+const MAX_PLAYER_PLANT_DIST : float = 100
 const crop_strnames: Array[StringName] = [
 	&"beet",
 	&"potato",
@@ -17,7 +17,7 @@ const crop_strnames: Array[StringName] = [
 # get the player 
 @export var optional_char: CharacterBody2D
 
-var selected_crop: StringName = &"wheat"
+var selected_crop: StringName
 var has_character: bool
 var in_range : bool = true
 ## Temporary solution for player data: a dictionary that keeps everything.
@@ -43,14 +43,14 @@ var player_data: Dictionary = {
 
 # TileMap reference
 @onready var tile_map: TileMap = $"../WorldTileMap"
-@onready var worldMap = get_parent()
-var hotbar
+@onready var hotbar = $"../HUD/HotBar"
 
 func _ready() -> void:
+	selected_crop = crop_strnames[0]
 	has_character = optional_char is CharacterBody2D
-	print("The ClickingPlayer has no character attached.
-		Proceding working with infinite range.")
-	hotbar = worldMap.get_node("HUD/HotBar")
+	if not has_character: 
+		print("The ClickingPlayer has no character attached. Proceding working with infinite range.")
+	
 
 func _process(_delta) -> void:
 	pass

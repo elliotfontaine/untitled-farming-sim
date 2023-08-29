@@ -13,6 +13,7 @@ func _ready():
 	slots = grid_container.get_children()
 	click_player_character = worldMap.get_node("ClickingPlayerCharacter")
 #	print(slots)
+	select_slot(0)
 
 func reset_slots():
 	for x in range(slots.size()):
