@@ -38,13 +38,14 @@ position = Vector2(473, 389)
 
 [node name="GeneralUI" type="CanvasLayer" parent="."]
 
-[node name="MenuUi" parent="GeneralUI" instance=ExtResource("4_2qfxs")]
+[node name="PauseMenu" parent="GeneralUI" instance=ExtResource("4_2qfxs")]
 
 [node name="MonthTransition" parent="GeneralUI" instance=ExtResource("5_bnojk")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="HotBar" parent="HUD" instance=ExtResource("4_g4qgx")]
+[node name="HotBar" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("4_g4qgx")]
+player = NodePath("../../ClickingPlayerCharacter")
 
 [node name="NextMonthButton" type="TextureButton" parent="HUD"]
 anchors_preset = -1

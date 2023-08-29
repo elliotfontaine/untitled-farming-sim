@@ -1,18 +1,22 @@
 extends Control
 
-@onready var grid_container = $NinePatchRect/GridContainer
-var slots
+
+@export var player: Node2D
 
 var normal_slot = preload("res://ui/assets/item_slot.png")
 var clicked_slot = preload("res://ui/assets/clicked_slot.png")
-@onready var worldMap = get_parent().get_parent()
-var click_player_character
+var has_player: bool = false
+var slots: Array
+
+@onready var grid_container = $NinePatchRect/GridContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if player:
+		has_player = true
+	else:
+		print("No player inventory attached.")
 	slots = grid_container.get_children()
-	click_player_character = worldMap.get_node("ClickingPlayerCharacter")
-#	print(slots)
 	select_slot(0)
 
 func reset_slots():
@@ -22,7 +26,8 @@ func reset_slots():
 func select_slot(x : int):
 	reset_slots()
 	slots[x].set_texture_normal(clicked_slot)
-	click_player_character.selected_crop = click_player_character.crop_strnames[x]
+	if has_player:
+		player.selected_crop = player.crop_strnames[x]
 
 func _on_beet_slot_pressed():
 	select_slot(0)
