@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bil1eavx6mtih"]
+[gd_scene load_steps=18 format=3 uid="uid://bil1eavx6mtih"]
 
 [ext_resource type="Script" path="res://ui/inventories/hot_bar.gd" id="1_avxkm"]
 [ext_resource type="Texture2D" uid="uid://bn675v6biejh2" path="res://ui/assets/HotBar Container.png" id="2_5d7vx"]
@@ -9,10 +9,19 @@
 [ext_resource type="PackedScene" uid="uid://cov0jud3r1mur" path="res://crops/crop_species/french_beans.tscn" id="10_or8jd"]
 [ext_resource type="PackedScene" uid="uid://dkprd7qgym2fa" path="res://crops/crop_species/pumpkin.tscn" id="12_pcufq"]
 [ext_resource type="PackedScene" uid="uid://crbv5r7jfo7kl" path="res://crops/crop_species/carrot.tscn" id="14_et2tv"]
+[ext_resource type="Texture2D" uid="uid://dq2f2qx4c7p80" path="res://assets/images/hud/menus_button_unpressed.png" id="14_wxu4c"]
+[ext_resource type="Texture2D" uid="uid://ddvomf6ph8hm2" path="res://assets/images/hud/menus_button_pressed.png" id="15_xrrim"]
 [ext_resource type="PackedScene" uid="uid://dndos1oxg1lrb" path="res://crops/crop_species/onion.tscn" id="16_0egpu"]
+[ext_resource type="FontFile" uid="uid://bxyb23qbuo64n" path="res://assets/Fonts/Kenney Pixel.ttf" id="16_fub7r"]
 [ext_resource type="PackedScene" uid="uid://5ptybkilcmce" path="res://crops/crop_species/cauliflower.tscn" id="18_cpwko"]
 [ext_resource type="PackedScene" uid="uid://dq4nnkr2m34by" path="res://crops/crop_species/turnip.tscn" id="20_yjsxt"]
 [ext_resource type="PackedScene" uid="uid://bxtxvgohjtibm" path="res://crops/crop_species/wheat.tscn" id="22_7qaan"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w3gta"]
+line_spacing = 0.0
+font = ExtResource("16_fub7r")
+font_color = Color(0.878431, 0.878431, 0.878431, 1)
+shadow_color = Color(0, 0, 0, 0.639216)
 
 [node name="HotBar" type="Control"]
 layout_mode = 3
@@ -26,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_avxkm")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="SlotsRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -44,7 +53,7 @@ patch_margin_top = 5
 patch_margin_right = 20
 patch_margin_bottom = 5
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+[node name="SlotsGrid" type="GridContainer" parent="SlotsRect"]
 custom_minimum_size = Vector2(16, 16)
 layout_direction = 2
 layout_mode = 1
@@ -59,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 10
 
-[node name="BeetSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="BeetSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Beet"
 mouse_default_cursor_shape = 2
@@ -67,11 +76,26 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Beet" parent="NinePatchRect/GridContainer/BeetSlot" instance=ExtResource("4_uv387")]
+[node name="Beet" parent="SlotsRect/SlotsGrid/BeetSlot" instance=ExtResource("4_uv387")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="PotatoSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="Count" type="Label" parent="SlotsRect/SlotsGrid/BeetSlot"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.125
+anchor_right = 0.875
+anchor_bottom = 0.875
+offset_left = 1.0
+offset_top = -2.0
+offset_right = -1.0
+offset_bottom = -12.0
+text = "0"
+label_settings = SubResource("LabelSettings_w3gta")
+horizontal_alignment = 2
+
+[node name="PotatoSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Potato"
 mouse_default_cursor_shape = 2
@@ -79,11 +103,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Potato" parent="NinePatchRect/GridContainer/PotatoSlot" instance=ExtResource("6_lh1wm")]
+[node name="Potato" parent="SlotsRect/SlotsGrid/PotatoSlot" instance=ExtResource("6_lh1wm")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="TomatoSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="TomatoSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Tomato"
 mouse_default_cursor_shape = 2
@@ -91,11 +115,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Tomato" parent="NinePatchRect/GridContainer/TomatoSlot" instance=ExtResource("8_ukt80")]
+[node name="Tomato" parent="SlotsRect/SlotsGrid/TomatoSlot" instance=ExtResource("8_ukt80")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="FrenchBeansSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="FrenchBeansSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "French Beans"
 mouse_default_cursor_shape = 2
@@ -103,11 +127,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="FrenchBeans" parent="NinePatchRect/GridContainer/FrenchBeansSlot" instance=ExtResource("10_or8jd")]
+[node name="FrenchBeans" parent="SlotsRect/SlotsGrid/FrenchBeansSlot" instance=ExtResource("10_or8jd")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="PumpkinSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="PumpkinSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Pumpkin"
 mouse_default_cursor_shape = 2
@@ -115,11 +139,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Pumpkin" parent="NinePatchRect/GridContainer/PumpkinSlot" instance=ExtResource("12_pcufq")]
+[node name="Pumpkin" parent="SlotsRect/SlotsGrid/PumpkinSlot" instance=ExtResource("12_pcufq")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="CarrotSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="CarrotSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Carrot"
 mouse_default_cursor_shape = 2
@@ -127,11 +151,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Carrot" parent="NinePatchRect/GridContainer/CarrotSlot" instance=ExtResource("14_et2tv")]
+[node name="Carrot" parent="SlotsRect/SlotsGrid/CarrotSlot" instance=ExtResource("14_et2tv")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="OnionSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="OnionSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Onion"
 mouse_default_cursor_shape = 2
@@ -139,11 +163,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Onion" parent="NinePatchRect/GridContainer/OnionSlot" instance=ExtResource("16_0egpu")]
+[node name="Onion" parent="SlotsRect/SlotsGrid/OnionSlot" instance=ExtResource("16_0egpu")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="CauliflowerSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="CauliflowerSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Cauliflower"
 mouse_default_cursor_shape = 2
@@ -151,11 +175,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Cauliflower" parent="NinePatchRect/GridContainer/CauliflowerSlot" instance=ExtResource("18_cpwko")]
+[node name="Cauliflower" parent="SlotsRect/SlotsGrid/CauliflowerSlot" instance=ExtResource("18_cpwko")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="TurnipSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="TurnipSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Turnip"
 mouse_default_cursor_shape = 2
@@ -163,11 +187,11 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Turnip" parent="NinePatchRect/GridContainer/TurnipSlot" instance=ExtResource("20_yjsxt")]
+[node name="Turnip" parent="SlotsRect/SlotsGrid/TurnipSlot" instance=ExtResource("20_yjsxt")]
 position = Vector2(16, 16)
 state = 1
 
-[node name="WheatSlot" type="TextureButton" parent="NinePatchRect/GridContainer"]
+[node name="WheatSlot" type="TextureButton" parent="SlotsRect/SlotsGrid"]
 layout_mode = 2
 tooltip_text = "Wheat"
 mouse_default_cursor_shape = 2
@@ -175,17 +199,100 @@ texture_normal = ExtResource("3_3fai8")
 stretch_mode = 5
 metadata/_edit_group_ = true
 
-[node name="Wheat" parent="NinePatchRect/GridContainer/WheatSlot" instance=ExtResource("22_7qaan")]
+[node name="Wheat" parent="SlotsRect/SlotsGrid/WheatSlot" instance=ExtResource("22_7qaan")]
 position = Vector2(16, 16)
 state = 1
 
-[connection signal="pressed" from="NinePatchRect/GridContainer/BeetSlot" to="." method="_on_beet_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/PotatoSlot" to="." method="_on_potato_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/TomatoSlot" to="." method="_on_tomato_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/FrenchBeansSlot" to="." method="_on_french_beans_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/PumpkinSlot" to="." method="_on_pumpkin_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/CarrotSlot" to="." method="_on_carrot_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/OnionSlot" to="." method="_on_onion_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/CauliflowerSlot" to="." method="_on_cauliflower_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/TurnipSlot" to="." method="_on_turnip_slot_pressed"]
-[connection signal="pressed" from="NinePatchRect/GridContainer/WheatSlot" to="." method="_on_wheat_slot_pressed"]
+[node name="ShopRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 189.0
+offset_top = -41.0
+offset_right = 246.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_5d7vx")
+patch_margin_left = 20
+patch_margin_top = 5
+patch_margin_right = 20
+patch_margin_bottom = 5
+
+[node name="BuyButton" type="TextureButton" parent="ShopRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.05
+anchor_right = 0.965
+anchor_bottom = 0.5
+offset_left = 2.152
+offset_top = 2.0
+offset_right = -2.04
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("14_wxu4c")
+texture_pressed = ExtResource("15_xrrim")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShopRect/BuyButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.023
+anchor_top = 0.058
+anchor_right = 0.552
+anchor_bottom = 0.875
+offset_left = 0.874564
+offset_top = -2.9541
+offset_right = -0.0104656
+offset_bottom = -1.39375
+text = "BUY"
+label_settings = SubResource("LabelSettings_w3gta")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellButton" type="TextureButton" parent="ShopRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.05
+anchor_right = 0.965
+anchor_bottom = 0.5
+offset_left = 2.152
+offset_top = 18.0
+offset_right = -2.04
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("14_wxu4c")
+texture_pressed = ExtResource("15_xrrim")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShopRect/SellButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.058
+anchor_right = 0.552
+anchor_bottom = 0.86
+offset_left = 1.16816
+offset_top = -2.9541
+offset_right = 2.98953
+offset_bottom = -1.147
+text = "SELL"
+label_settings = SubResource("LabelSettings_w3gta")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="SlotsRect/SlotsGrid/BeetSlot" to="." method="_on_beet_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/PotatoSlot" to="." method="_on_potato_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/TomatoSlot" to="." method="_on_tomato_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/FrenchBeansSlot" to="." method="_on_french_beans_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/PumpkinSlot" to="." method="_on_pumpkin_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/CarrotSlot" to="." method="_on_carrot_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/OnionSlot" to="." method="_on_onion_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/CauliflowerSlot" to="." method="_on_cauliflower_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/TurnipSlot" to="." method="_on_turnip_slot_pressed"]
+[connection signal="pressed" from="SlotsRect/SlotsGrid/WheatSlot" to="." method="_on_wheat_slot_pressed"]
