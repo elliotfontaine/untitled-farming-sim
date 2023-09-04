@@ -21,8 +21,8 @@ const MED_TEMP: Dictionary = {
 	MONTHS.DECEMBER: 4
 }
 const QTY_REPLENISH_NITROGEN: int = 20
-const P_GEOM_DISTRIB: float = 0.15
-const P_PROPAGATION: float = 0.25
+const P_GEOM_DISTRIB: float = 0.005
+const P_PROPAGATION: float = 0.50
 ## Should be written/read by the save system if implemented.
 #var world_data: Dictionary = {
 #	"year": 1,
@@ -65,10 +65,11 @@ func time_skip() -> void:
 			soildata.total_nitrogen -= crop.nitrogen_consumption
 			soildata.current_crop = crop
 			#_propagate_disease()
-			if not crop.sick:
+			if crop.sick == false:
 				crop.sick = _gamble_sick(soildata)
+				print(crop.sick)
 			else:
-				_propagate_disease(coords)
+				_propagate_disease(coords, crop.family)
 		# If the field is bare, during fallow for exemple
 		else:
 			soildata.total_nitrogen += QTY_REPLENISH_NITROGEN
@@ -133,16 +134,18 @@ func _random_temperature(current_month: MONTHS) -> int:
 
 ## Uses the cumulative distribution function of a geometric distribution.
 ## With k the `total_month_unchanged` & p probability of getting sick 1st month:
-## P(get sick) = 1 - (1-p)**k
+## P("getting sick") = 1 - (1-p)**k
 func _gamble_sick(soildata: SoilData) -> bool:
-	var proba = 1 - pow((1-P_GEOM_DISTRIB), soildata.total_month_unchanged)
+	var proba := 1 - pow((1-P_GEOM_DISTRIB), soildata.total_month_unchanged)
 	return randf() < proba
 
-func _propagate_disease(cell: Vector2i) -> void:
+func _propagate_disease(cell: Vector2i, family: Crop.FAMILIES) -> void:
 	var neighbors := tilemap.get_surrounding_cells(cell)
 	for neighbor_cell in neighbors:
-		if tilemap.crop_instances.has(neighbor_cell):
-			var neighbor_crop = tilemap.crop_instances(neighbor_cell)
+		if not tilemap.crop_instances.has(neighbor_cell):
+			break
+		var neighbor_crop: Crop = tilemap.crop_instances[neighbor_cell]
+		if not neighbor_crop.sick and neighbor_crop.family == family:
 			neighbor_crop.sick = Global.bernoulli(P_PROPAGATION)
 		
 
