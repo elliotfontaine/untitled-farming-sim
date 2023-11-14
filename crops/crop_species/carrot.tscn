@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://crbv5r7jfo7kl"]
+
+[ext_resource type="Script" path="res://crops/crop.gd" id="1_s6a2y"]
+[ext_resource type="Texture2D" uid="uid://xycm7qlk0dr8" path="res://crops/assets/crops_stages/carrot.png" id="2_xytog"]
+[ext_resource type="Texture2D" uid="uid://bx3n2y1lek2kh" path="res://crops/assets/vegetables/carrot.png" id="3_hniu1"]
+
+[node name="Carrot" type="Node2D"]
+script = ExtResource("1_s6a2y")
+crop_texture = ExtResource("2_xytog")
+vegetable_texture = ExtResource("3_hniu1")
+species = "Carrot"
+family = 4
+max_growth = 1300
+baseline_temperature = 9
+selling_price = 25
+seed_cost = 30

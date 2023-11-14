@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmufdgolayvja"]
+
+[ext_resource type="Script" path="res://player/player_character.gd" id="1_lg5xw"]
+[ext_resource type="Texture2D" uid="uid://bri7cxs327ldc" path="res://common/assets/images/effects/tdfarmfx_shadow_1.png" id="2_lkmir"]
+[ext_resource type="SpriteFrames" uid="uid://crww0m2lcreh7" path="res://player/resources/player_character.tres" id="2_nllpk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_soc8u"]
+radius = 2.0
+height = 14.0
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+script = ExtResource("1_lg5xw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.835294)
+position = Vector2(0, 13)
+texture = ExtResource("2_lkmir")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_nllpk")
+animation = &"down_idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 960
+limit_bottom = 800
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_soc8u")
