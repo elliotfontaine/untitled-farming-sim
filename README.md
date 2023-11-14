@@ -1,4 +1,4 @@
-# untitled-farming-sim
+# SEASONS GONE
  Top-down pixel art farming game made in [Godot](https://github.com/godotengine/godot), with mechanics trying to recreate real-life concepts like nitrogen cycle or crop rotation.
 
 Builds available at https://elliotfontaine.itch.io/seasons-gone
